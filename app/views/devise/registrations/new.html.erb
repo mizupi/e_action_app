@@ -1,6 +1,6 @@
 <style>
   body {
-    background-color: #c9f5f9;
+    background-color: white;
 }
 </style>
 <div class="flex h-screen">
@@ -34,7 +34,7 @@
           <label class="text-gray-500">パスワード再入力</label><br />
           <%= f.password_field :password_confirmation, class:"p-1 rounded-lg bg-gray-100 shadow-md focus:outline-none focus:border-2 border-cyan-500", id:"password_confirmation", placeholder:"" %>
         </div>
-        <%= f.submit "とうろくする" ,class:"bg-cyan-200 p-2 pr-5 pl-5 text-gray-800 font-semibold rounded-xl border-cyan-700 focus:ring-2 m-4 cursor-pointer" %>
+        <%= f.submit "とうろくする" ,class:"bg-green-200 p-2 pr-5 pl-5 text-gray-500 font-semibold rounded-xl border-cyan-700 focus:ring-2 m-4 cursor-pointer" %>
       <% end %>
     </div>
   </div>

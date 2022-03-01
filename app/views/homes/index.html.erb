@@ -1,0 +1,24 @@
+<%# コンセプト %>
+<%= render partial: "concept" %>
+
+<%# ログイン状態で表示ここから %>
+<%# 今日のアクション %>
+<%= render partial: "today_action" %>
+<%# アクションを記録、アクション一覧へのリンク %>
+<%= render partial: "report_action" %>
+<%# ログイン状態で表示ここまで %>
+
+<%# あそびかた %>
+<%= render partial: "howtoplay" %>
+
+<%# 新規登録とログインのボタン %>
+<div class="container px-6 py-10 mx-auto flex justify-center">
+    <div class="items-center lg:flex justify-center">
+        <button class=" px-6 py-2 mr-10 transition ease-in duration-200 uppercase rounded-full hover:bg-gray-800 hover:text-white border-2 border-gray-900 focus:outline-none">
+            新しくはじめる
+        </button>
+        <button class=" px-6 py-2  transition ease-in duration-200 uppercase rounded-full hover:bg-gray-800 hover:text-white border-2 border-gray-900 focus:outline-none">
+            ログイン
+        </button>
+    </div>
+</div>

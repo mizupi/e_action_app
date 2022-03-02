@@ -1,12 +1,16 @@
 class ActivitiesController < ApplicationController
-  before_action :move_to_index, except: :index
+  before_action :move_to_root
 
-  def index
+  def new
+    @activities = Activity.new
+  end
+
+  def create
   end
 
   private
 
-  def move_to_index
-    redirect_to action: :index unless user_signed_in?
+  def move_to_root
+    redirect_to root_path unless user_signed_in?
   end
 end

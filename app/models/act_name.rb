@@ -14,7 +14,4 @@ class ActName < ActiveHash::Base
     { id: 34, name: '暑いときは上着をぬぐ' }, { id: 35, name: '夏はエアコン温度を２８℃にする' }, { id: 36, name: '冬はエアコン温度を２０℃にする' }
   ]
 
-  include ActiveHash::Associations
-  has_many :activities
-
 end

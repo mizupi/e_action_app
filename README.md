@@ -26,9 +26,9 @@
 
 ## activitiesテーブル
 
-| Column        | Type       | Options                        |
-| ------------- | ---------- | ------------------------------ |
-| act_name_id   | string     | null: false                    |
+| Column     | Type       | Options             |
+| ---------- | ---------- | ------------------- |
+| act_name   | string     | null: false         |
 
 ### Association
 

@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+Activity.destroy_all
+Activity.insert_all([
+  { id: 1, act_name: 'レジぶくろをもらわない' }, 
+  { id: 2, act_name: 'マイエコバッグを使う' }, 
+  { id: 3, act_name: 'マイはしを持ち歩く' }
+])
+
+

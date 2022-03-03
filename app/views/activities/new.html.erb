@@ -2,343 +2,153 @@
 <div class="bg-gray-100">
             <div class="container mx-auto">
                 <div role="article" class="bg-gray-100 py-12 md:px-8">
-                    <div class="px-4 xl:px-0 py-10">
-                        <div class="flex flex-col lg:flex-row flex-wrap">
-                            <div class="mt-4 lg:mt-0 lg:w-3/5">
-                                <div>
-                                    <h1 class="text-3xl ml-2 lg:ml-0 lg:text-4xl font-bold text-gray-700 tracking-normal lg:w-11/12">アクションのしゅるい</h1>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="px-4 py-10 flex justify-center">
+                        <h1 class="text-3xl ml-2 lg:ml-0 lg:text-4xl font-bold text-gray-700 tracking-normal lg:w-11/12 text-center"><span class="text-cyan-600">アクション</span>をきろく</h1>
                     </div>
                     <div class="px-6 xl:px-0">
                         <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 pb-6 gap-8">
+
+                            <%# ごみのセクション %>
                             <div role="cell" class="bg-gray-100">
                                 <div class="bg-white p-5 rounded-md relative h-full w-full">
                                     <!-- class="absolute inset-0 object-center object-cover h-full w-full"  -->
                                     <span><img class="bg-gray-200 p-2 mb-5 rounded-full" src="https://i.ibb.co/27R6nk5/home-1.png" alt="home-1" /></span>
                                     <h1 class="pb-4 text-2xl font-semibold text-gray-700 text-center">ごみ</h1>
                                     <div class="my-5">
-                                        <%# ひとつのアクション %>
-                                        <div class="flex items-center pb-4 dark:border-gray-700 cursor-pointer w-full space-x-3">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="12.5" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                                            </svg>
-                                            <h4 class="text-md text-gray-900" id="trash1">aaaaaaaaa</h4>
-                                        </div>
-
-
-                                         <% @activities.each do |activity| %>
-                                         <%= form_with model: @user_activity, path: user_activities_path, local: true do |f| %>
-                                            <h4 class="text-md text-gray-900"><%= activity.activity %></h4>
-                                            <%= f.hidden_field :activity_id, :value => activity.id %>
-                                            <%= f.submit "きろく" %>
+                                        <% @activities[0,9].each do |activity| %>
+                                            <%= form_with model: @user_activity, path: user_activities_path, local: true do |f|%>
+                                                <div class="flex align-center my-7">
+                                                    <%= button_tag type: 'submit' do %>
+                                                        <svg xmlns=”http://www.w3.org/2000/svg” class="h-8 w-8 rounded-full text-green-500 hover:text-white hover:bg-green-500"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                                        </svg>
+                                                    <% end %>
+                                                    <h4 class="text-md text-gray-800 ml-4 hover:border-b-2 hover:border-green-500"><%= activity.activity %></h4>
+                                                    <%= f.hidden_field :activity_id, :value => activity.id %>
+                                                </div>
+                                            <% end %>
                                         <% end %>
-                                        <% end %>
-
-                                            <h4 class="text-md text-gray-900" id="trash1">レジぶくろをもらわない</h4>
-                                            <h4 class="text-md text-gray-900 hidden" id="trash2"></h4>
-
-
-
-
-                                        <div class="flex items-center pb-4 dark:border-gray-700 cursor-pointer w-full space-x-3">
-                                            <div>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="12.5" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                                                </svg>
-                                            </div>
-                                            <h4 class="text-md text-gray-900 dark:text-gray-100">Changing you profile picture and other information</h4>
-                                        </div>
-                                        <div class="flex items-center pb-4 dark:border-gray-700 cursor-pointer w-full">
-                                            <div>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="12.5" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                                                </svg>
-                                            </div>
-                                            <h4 class="text-md text-gray-900 dark:text-gray-100 pl-4">I didnt get a confirmation email, what should I do next</h4>
-                                        </div>
-                                        <div class="flex items-center pb-4 dark:border-gray-700 cursor-pointer w-full">
-                                            <div>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="12.5" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                                                </svg>
-                                            </div>
-                                            <h4 class="text-md text-gray-900 dark:text-gray-100 pl-4">What is the refund policy if I have to cancel during the month</h4>
-                                        </div>
                                     </div>
-                                    <a class="hover:text-indigo-500 hover:underline absolute bottom-5 text-sm text-indigo-700 font-bold cursor-pointer flex items-center" href="javascript:void(0)">
-                                        <p>Show All</p>
-                                        <div>
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-narrow-right" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="#4338CA" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                                <line x1="5" y1="12" x2="19" y2="12" />
-                                                <line x1="15" y1="16" x2="19" y2="12" />
-                                                <line x1="15" y1="8" x2="19" y2="12" />
-                                            </svg>
-                                        </div>
-                                    </a>
                                 </div>
                             </div>
+
+                            <%# スマートムーブのセクション %>
                             <div role="cell" class="bg-gray-100">
                                 <div class="bg-white p-5 rounded-md relative h-full w-full">
                                     <!-- class="absolute inset-0 object-center object-cover h-full w-full"  -->
                                     <span><img class="bg-gray-200 p-2 mb-5 rounded-full" src="https://i.ibb.co/bdGyLYk/pricetags-1.png" alt="pricetags-1" /></span>
-                                    <h1 class="pb-4 text-2xl font-semibold">Subscription Plans</h1>
+                                    <h1 class="pb-4 text-2xl font-semibold text-gray-700 text-center">スマートムーブ</h1>
                                     <div class="my-5">
-                                        <div class="flex items-center pb-4 dark:border-gray-700 cursor-pointer w-full">
-                                            <div>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="12.5" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                                                </svg>
-                                            </div>
-                                            <h4 class="text-md text-gray-900 dark:text-gray-100 pl-4">First time, what do I do next?</h4>
-                                        </div>
-                                        <div class="flex items-center pb-4 dark:border-gray-700 cursor-pointer w-full">
-                                            <div>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="12.5" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                                                </svg>
-                                            </div>
-                                            <h4 class="text-md text-gray-900 dark:text-gray-100 pl-4">Changing you profile picture and other information</h4>
-                                        </div>
-                                        <div class="flex items-center pb-4 dark:border-gray-700 cursor-pointer w-full">
-                                            <div>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="12.5" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                                                </svg>
-                                            </div>
-                                            <h4 class="text-md text-gray-900 dark:text-gray-100 pl-4">I didnt get a confirmation email, what should I do next</h4>
-                                        </div>
-                                        <div class="flex items-center pb-4 dark:border-gray-700 cursor-pointer w-full">
-                                            <div>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="12.5" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                                                </svg>
-                                            </div>
-                                            <h4 class="text-md text-gray-900 dark:text-gray-100 pl-4">What is the refund policy if I have to cancel during the month</h4>
-                                        </div>
-                                        <div class="flex items-center pb-4 dark:border-gray-700 cursor-pointer w-full">
-                                            <div>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="12.5" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                                                </svg>
-                                            </div>
-                                            <h4 class="text-md text-gray-900 dark:text-gray-100 pl-4">What is the refund policy?</h4>
-                                        </div>
+                                        <% @activities[10,4].each do |activity| %>
+                                            <%= form_with model: @user_activity, path: user_activities_path, local: true do |f|%>
+                                                <div class="flex align-center my-7">
+                                                    <%= button_tag type: 'submit' do %>
+                                                        <svg xmlns=”http://www.w3.org/2000/svg” class="h-8 w-8 rounded-full text-green-500 hover:text-white hover:bg-green-500"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                                        </svg>
+                                                    <% end %>
+                                                    <h4 class="text-md text-gray-800 ml-4 hover:border-b-2 hover:border-green-500"><%= activity.activity %></h4>
+                                                    <%= f.hidden_field :activity_id, :value => activity.id %>
+                                                </div>
+                                            <% end %>
+                                        <% end %>
                                     </div>
-                                    <a class="hover:text-indigo-500 hover:underline absolute bottom-5 text-sm text-indigo-700 font-bold cursor-pointer flex items-center" href="javascript:void(0)">
-                                        <p>Show All</p>
-                                        <div>
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-narrow-right" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="#4338CA" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                                <line x1="5" y1="12" x2="19" y2="12" />
-                                                <line x1="15" y1="16" x2="19" y2="12" />
-                                                <line x1="15" y1="8" x2="19" y2="12" />
-                                            </svg>
-                                        </div>
-                                    </a>
                                 </div>
                             </div>
+
+                            <%# 学習のセクション %>
                             <div role="cell" class="bg-gray-100">
                                 <div class="bg-white p-5 rounded-md relative h-full w-full">
                                     <!-- class="absolute inset-0 object-center object-cover h-full w-full"  -->
-                                    <span><img class="bg-gray-200 p-2 mb-5 rounded-full" src="https://i.ibb.co/GT4KHvJ/card-1.png" alt="home-1" /></span>
-                                    <h1 class="pb-4 text-2xl font-semibold">Payment Options</h1>
+                                    <span><img class="bg-gray-200 p-2 mb-5 rounded-full" src="https://i.ibb.co/27R6nk5/home-1.png" alt="home-1" /></span>
+                                    <h1 class="pb-4 text-2xl font-semibold text-gray-700 text-center">学習</h1>
                                     <div class="my-5">
-                                        <div class="flex items-center pb-4 dark:border-gray-700 cursor-pointer w-full">
-                                            <div>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="12.5" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                                                </svg>
-                                            </div>
-                                            <h4 class="text-md text-gray-900 dark:text-gray-100 pl-4">First time, what do I do next?</h4>
-                                        </div>
-                                        <div class="flex items-center pb-4 dark:border-gray-700 cursor-pointer w-full">
-                                            <div>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="12.5" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                                                </svg>
-                                            </div>
-                                            <h4 class="text-md text-gray-900 dark:text-gray-100 pl-4">Changing you profile picture and other information</h4>
-                                        </div>
-                                        <div class="flex items-center pb-4 dark:border-gray-700 cursor-pointer w-full">
-                                            <div>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="12.5" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                                                </svg>
-                                            </div>
-                                            <h4 class="text-md text-gray-900 dark:text-gray-100 pl-4">I didnt get a confirmation email, what should I do next</h4>
-                                        </div>
-                                        <div class="flex items-center pb-4 dark:border-gray-700 cursor-pointer w-full">
-                                            <div>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="12.5" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                                                </svg>
-                                            </div>
-                                            <h4 class="text-md text-gray-900 dark:text-gray-100 pl-4">What is the refund policy if I have to cancel during the month</h4>
-                                        </div>
+                                        <% @activities[14,7].each do |activity| %>
+                                            <%= form_with model: @user_activity, path: user_activities_path, local: true do |f|%>
+                                                <div class="flex align-center my-7">
+                                                    <%= button_tag type: 'submit' do %>
+                                                        <svg xmlns=”http://www.w3.org/2000/svg” class="h-8 w-8 rounded-full text-green-500 hover:text-white hover:bg-green-500"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                                        </svg>
+                                                    <% end %>
+                                                    <h4 class="text-md text-gray-800 ml-4 hover:border-b-2 hover:border-green-500"><%= activity.activity %></h4>
+                                                    <%= f.hidden_field :activity_id, :value => activity.id %>
+                                                </div>
+                                            <% end %>
+                                        <% end %>
                                     </div>
-                                    <a class="hover:text-indigo-500 hover:underline absolute bottom-5 text-sm text-indigo-700 font-bold cursor-pointer flex items-center" href="javascript:void(0)">
-                                        <p>Show All</p>
-                                        <div>
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-narrow-right" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="#4338CA" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                                <line x1="5" y1="12" x2="19" y2="12" />
-                                                <line x1="15" y1="16" x2="19" y2="12" />
-                                                <line x1="15" y1="8" x2="19" y2="12" />
-                                            </svg>
-                                        </div>
-                                    </a>
                                 </div>
                             </div>
+
+                            <%# 食料のセクション %>
                             <div role="cell" class="bg-gray-100">
-                                <div class="bg-white p-5 rounded-md h-full relative w-full">
+                                <div class="bg-white p-5 rounded-md relative h-full w-full">
                                     <!-- class="absolute inset-0 object-center object-cover h-full w-full"  -->
-                                    <span><img class="bg-gray-200 p-2 mb-5 rounded-full" src="https://i.ibb.co/rG4r6NJ/notifications-1.png" alt="home-1" /></span>
-                                    <h1 class="pb-4 text-2xl font-semibold">Notification Settings</h1>
+                                    <span><img class="bg-gray-200 p-2 mb-5 rounded-full" src="https://i.ibb.co/bdGyLYk/pricetags-1.png" alt="pricetags-1" /></span>
+                                    <h1 class="pb-4 text-2xl font-semibold text-gray-700 text-center">食料</h1>
                                     <div class="my-5">
-                                        <div class="flex items-center pb-4 dark:border-gray-700 cursor-pointer w-full">
-                                            <div>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="12.5" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                                                </svg>
-                                            </div>
-                                            <h4 class="text-md text-gray-900 dark:text-gray-100 pl-4">First time, what do I do next?</h4>
-                                        </div>
-                                        <div class="flex items-center pb-4 dark:border-gray-700 cursor-pointer w-full">
-                                            <div>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="12.5" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                                                </svg>
-                                            </div>
-                                            <h4 class="text-md text-gray-900 dark:text-gray-100 pl-4">Changing you profile picture and other information</h4>
-                                        </div>
-                                        <div class="flex items-center pb-4 dark:border-gray-700 cursor-pointer w-full">
-                                            <div>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="12.5" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                                                </svg>
-                                            </div>
-                                            <h4 class="text-md text-gray-900 dark:text-gray-100 pl-4">I didnt get a confirmation email, what should I do next</h4>
-                                        </div>
-                                        <div class="flex items-center pb-4 dark:border-gray-700 cursor-pointer w-full">
-                                            <div>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="12.5" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                                                </svg>
-                                            </div>
-                                            <h4 class="text-md text-gray-900 dark:text-gray-100 pl-4">What is the refund policy if I have to cancel during the month</h4>
-                                        </div>
+                                        <% @activities[21,2].each do |activity| %>
+                                            <%= form_with model: @user_activity, path: user_activities_path, local: true do |f|%>
+                                                <div class="flex align-center my-7">
+                                                    <%= button_tag type: 'submit' do %>
+                                                        <svg xmlns=”http://www.w3.org/2000/svg” class="h-8 w-8 rounded-full text-green-500 hover:text-white hover:bg-green-500"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                                        </svg>
+                                                    <% end %>
+                                                    <h4 class="text-md text-gray-800 ml-4 hover:border-b-2 hover:border-green-500"><%= activity.activity %></h4>
+                                                    <%= f.hidden_field :activity_id, :value => activity.id %>
+                                                </div>
+                                            <% end %>
+                                        <% end %>
                                     </div>
-                                    <a class="hover:text-indigo-500 hover:underline absolute bottom-5 text-sm text-indigo-700 font-bold cursor-pointer flex items-center" href="javascript:void(0)">
-                                        <p>Show All</p>
-                                        <div>
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-narrow-right" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="#4338CA" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                                <line x1="5" y1="12" x2="19" y2="12" />
-                                                <line x1="15" y1="16" x2="19" y2="12" />
-                                                <line x1="15" y1="8" x2="19" y2="12" />
-                                            </svg>
-                                        </div>
-                                    </a>
                                 </div>
                             </div>
+
+                            <%# 水のセクション %>
                             <div role="cell" class="bg-gray-100">
-                                <div class="relative bg-white p-5 rounded-md relative h-full w-full">
+                                <div class="bg-white p-5 rounded-md relative h-full w-full">
                                     <!-- class="absolute inset-0 object-center object-cover h-full w-full"  -->
-                                    <span><img class="bg-gray-200 p-2 mb-5 rounded-full" src="https://i.ibb.co/HFC1hqn/people-1.png" alt="home-1" /></span>
-                                    <h1 class="pb-4 text-2xl font-semibold">Profile Preferences</h1>
+                                    <span><img class="bg-gray-200 p-2 mb-5 rounded-full" src="https://i.ibb.co/27R6nk5/home-1.png" alt="home-1" /></span>
+                                    <h1 class="pb-4 text-2xl font-semibold text-gray-700 text-center">水</h1>
                                     <div class="my-5">
-                                        <div class="flex items-center pb-4 dark:border-gray-700 cursor-pointer w-full">
-                                            <div>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="12.5" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                                                </svg>
-                                            </div>
-                                            <h4 class="text-md text-gray-900 dark:text-gray-100 pl-4">First time, what do I do next?</h4>
-                                        </div>
-                                        <div class="flex items-center pb-4 dark:border-gray-700 cursor-pointer w-full">
-                                            <div>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="12.5" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                                                </svg>
-                                            </div>
-                                            <h4 class="text-md text-gray-900 dark:text-gray-100 pl-4">Changing you profile picture and other information</h4>
-                                        </div>
-                                        <div class="flex items-center pb-4 dark:border-gray-700 cursor-pointer w-full">
-                                            <div>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="12.5" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                                                </svg>
-                                            </div>
-                                            <h4 class="text-md text-gray-900 dark:text-gray-100 pl-4">I didnt get a confirmation email, what should I do next</h4>
-                                        </div>
+                                        <% @activities[21,2].each do |activity| %>
+                                            <%= form_with model: @user_activity, path: user_activities_path, local: true do |f|%>
+                                                <div class="flex align-center my-7">
+                                                    <%= button_tag type: 'submit' do %>
+                                                        <svg xmlns=”http://www.w3.org/2000/svg” class="h-8 w-8 rounded-full text-green-500 hover:text-white hover:bg-green-500"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                                        </svg>
+                                                    <% end %>
+                                                    <h4 class="text-md text-gray-800 ml-4 hover:border-b-2 hover:border-green-500"><%= activity.activity %></h4>
+                                                    <%= f.hidden_field :activity_id, :value => activity.id %>
+                                                </div>
+                                            <% end %>
+                                        <% end %>
                                     </div>
-                                    <a class="hover:text-indigo-500 hover:underline absolute bottom-5 text-sm text-indigo-700 font-bold cursor-pointer flex items-center" href="javascript:void(0)">
-                                        <p>Show All</p>
-                                        <div>
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-narrow-right" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="#4338CA" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                                <line x1="5" y1="12" x2="19" y2="12" />
-                                                <line x1="15" y1="16" x2="19" y2="12" />
-                                                <line x1="15" y1="8" x2="19" y2="12" />
-                                            </svg>
-                                        </div>
-                                    </a>
                                 </div>
                             </div>
+
+                            <%# 電気のセクション %>
                             <div role="cell" class="bg-gray-100">
-                                <div class="relative bg-white p-5 rounded-md relative h-full w-full">
+                                <div class="bg-white p-5 rounded-md relative h-full w-full">
                                     <!-- class="absolute inset-0 object-center object-cover h-full w-full"  -->
-                                    <span><img class="bg-gray-200 p-2 mb-5 rounded-full" src="https://i.ibb.co/QX80fYm/lock-closed-1.png" alt="home-1" /></span>
-                                    <h1 class="pb-4 text-2xl font-semibold">Privacy and Cookies</h1>
+                                    <span><img class="bg-gray-200 p-2 mb-5 rounded-full" src="https://i.ibb.co/bdGyLYk/pricetags-1.png" alt="pricetags-1" /></span>
+                                    <h1 class="pb-4 text-2xl font-semibold text-gray-700 text-center">電気</h1>
                                     <div class="my-5">
-                                        <div class="flex items-center pb-4 dark:border-gray-700 cursor-pointer w-full">
-                                            <div>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="12.5" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                                                </svg>
-                                            </div>
-                                            <h4 class="text-md text-gray-900 dark:text-gray-100 pl-4">First time, what do I do next?</h4>
-                                        </div>
-                                        <div class="flex items-center pb-4 dark:border-gray-700 cursor-pointer w-full">
-                                            <div>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="12.5" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                                                </svg>
-                                            </div>
-                                            <h4 class="text-md text-gray-900 dark:text-gray-100 pl-4">Changing you profile picture and other information</h4>
-                                        </div>
-                                        <div class="flex items-center pb-4 dark:border-gray-700 cursor-pointer w-full">
-                                            <div>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="12.5" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                                                </svg>
-                                            </div>
-                                            <h4 class="text-md text-gray-900 dark:text-gray-100 pl-4">I didnt get a confirmation email, what should I do next</h4>
-                                        </div>
-                                        <div class="flex items-center pb-4 dark:border-gray-700 cursor-pointer w-full">
-                                            <div>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="12.5" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                                                </svg>
-                                            </div>
-                                            <h4 class="text-md text-gray-900 dark:text-gray-100 pl-4">What is the refund policy if I have to cancel during the month</h4>
-                                        </div>
+                                        <% @activities[25,11].each do |activity| %>
+                                            <%= form_with model: @user_activity, path: user_activities_path, local: true do |f|%>
+                                                <div class="flex align-center my-7">
+                                                    <%= button_tag type: 'submit' do %>
+                                                        <svg xmlns=”http://www.w3.org/2000/svg” class="h-8 w-8 rounded-full text-green-500 hover:text-white hover:bg-green-500"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                                        </svg>
+                                                    <% end %>
+                                                    <h4 class="text-md text-gray-800 ml-4 hover:border-b-2 hover:border-green-500"><%= activity.activity %></h4>
+                                                    <%= f.hidden_field :activity_id, :value => activity.id %>
+                                                </div>
+                                            <% end %>
+                                        <% end %>
                                     </div>
-                                    <a class="hover:text-indigo-500 hover:underline absolute bottom-5 text-sm text-indigo-700 font-bold cursor-pointer flex items-center" href="javascript:void(0)">
-                                        <p>Show All</p>
-                                        <div>
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-narrow-right" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="#4338CA" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                                <line x1="5" y1="12" x2="19" y2="12" />
-                                                <line x1="15" y1="16" x2="19" y2="12" />
-                                                <line x1="15" y1="8" x2="19" y2="12" />
-                                            </svg>
-    <!--- more free and premium Tailwind CSS components at https://tailwinduikit.com/ --->
-                                    </div>
-                                    </a>
                                 </div>
                             </div>
                         </div>

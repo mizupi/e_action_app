@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema[7.0].define(version: 2022_03_03_021125) do
   create_table "activities", charset: "utf8", force: :cascade do |t|
-    t.string "act_name", null: false
+    t.string "activity", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -30,8 +30,8 @@
 
                                          <% @activities.each do |activity| %>
                                          <%= form_with model: @user_activity, path: user_activities_path, local: true do |f| %>
-                                            <h4 class="text-md text-gray-900" id="trash1"><%= activity.act_name %></h4>
-                                            <%= f.hidden_field :act_name_id, :value => activity.id, class:"text-md text-gray-900", id:"trash2" %>
+                                            <h4 class="text-md text-gray-900"><%= activity.activity %></h4>
+                                            <%= f.hidden_field :activity_id, :value => activity.id %>
                                             <%= f.submit "きろく" %>
                                         <% end %>
                                         <% end %>

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to: 'homes#index'
 
   resources :activities, only: [:new, :create]
-
   resources :users, only: :show
+  resources :user_activities, only: [:new, :create]
+
 end

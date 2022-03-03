@@ -32,7 +32,7 @@
 
 ### Association
 
-- belongs_to :user, through: :user_activities
+- has_many :users, through: :user_activities
 
 ## user_activities テーブル
 

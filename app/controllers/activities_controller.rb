@@ -7,8 +7,9 @@ class ActivitiesController < ApplicationController
   end
 
   def create
-    @user_activity = UserActivity.new({activity_id: params[:user_activity][:activity_id], user_id: current_user.id})
+    @user_activity = UserActivity.new({activity_id: params[:activity][:activity_id], user_id: current_user.id})
     @user_activity.save
+    
   end
 
   private
@@ -16,4 +17,5 @@ class ActivitiesController < ApplicationController
   def move_to_root
     redirect_to root_path unless user_signed_in?
   end
+
 end

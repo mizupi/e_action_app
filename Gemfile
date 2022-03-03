@@ -75,3 +75,4 @@ end
 gem "tailwindcss-rails", "~> 2.0"
 gem "pry-rails"
 gem "devise"
+gem "active_hash"

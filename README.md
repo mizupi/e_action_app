@@ -4,7 +4,7 @@
 
 | Column             | Type   | Options                   |
 | ------------------ | ------ | ------------------------- |
-| nickname           | string | null: false               |
+| user_name          | string | null: false               |
 | email              | string | null: false, unique: true |
 | encrypted_password | string | null: false               |
 
@@ -26,13 +26,13 @@
 
 ## activitiesテーブル
 
-| Column        | Type       | Options                        |
-| ------------- | ---------- | ------------------------------ |
-| act_name_id   | string     | null: false                    |
+| Column     | Type       | Options             |
+| ---------- | ---------- | ------------------- |
+| act_name   | string     | null: false         |
 
 ### Association
 
-- belongs_to :user, through: :user_activities
+- has_many :users, through: :user_activities
 
 ## user_activities テーブル
 

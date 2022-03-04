@@ -2,10 +2,8 @@
 <%= render partial: "concept" %>
 
 <% if user_signed_in? %>
-    <%# 今日のアクション %>
+    <%# 今日のアクション、アクションを記録へのリンク%>
     <%= render partial: "today_action" %>
-    <%# アクションを記録、アクション一覧へのリンク %>
-    <%= render partial: "report_action" %>
 <% end %>
 
 <%# あそびかた %>

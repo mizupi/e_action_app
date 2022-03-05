@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>EAction</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= favicon_link_tag('favicon.ico') %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
@@ -15,11 +16,10 @@
   <body>
     <header>
     <nav class="bg-green-200 shadow">
-        <div class="container px-6 py-3 mx-auto md:flex">
+        <div class="container py-1 mx-auto md:flex">
             <div class="flex items-center justify-between">
-                <div class="mr-4">
-                    <%= link_to 'EACTION', root_path, class: "text-2xl font-bold text-gray-700 transition-colors duration-200 transform lg:text-3xl hover:text-gray-700" %>
-                </div>
+                <%#= link_to 'EACTION', root_path, class: "text-2xl font-bold text-gray-700 transition-colors duration-200 transform lg:text-3xl hover:text-gray-700" %>
+                <%= link_to image_tag("logo_image.png", class:"m-0 p-0 w-44"), root_path %>
                 
                 <%# <!-- Mobile menu button --> ハンバーガーメニュー %>
                 <div class="flex md:hidden" id="menu-btn">
@@ -32,8 +32,8 @@
             </div>
 
             <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
-            <div class="w-full md:flex md:items-center md:justify-between" id="menu">
-                <div class="flex flex-col px-2 py-3 -mx-4 md:flex-row md:mx-0 md:py-0">
+            <div class="w-full md:flex md:items-center md:justify-between pt-4" id="menu">
+                <div class="flex flex-col px-6 py-3 mx-4 md:flex-row md:mx-0 md:py-0">
                     <% if user_signed_in? %>
                         <%= link_to '今日のアクション', '#', class:"px-2 py-1 text-sm font-medium text-gray-700 transition-colors duration-200 transform rounded hover:bg-gray-900 hover:text-gray-100 md:mx-2" %>
                         <%= link_to 'アクションをきろく', new_activity_path, class:"px-2 py-1 text-sm font-medium text-gray-700 transition-colors duration-200 transform rounded hover:bg-gray-900 hover:text-gray-100 md:mx-2" %>

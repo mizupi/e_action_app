@@ -2,7 +2,7 @@
 <div class="bg-gray-100">
             <div class="container mx-auto">
                 <div role="article" class="bg-gray-100 py-12 md:px-8">
-                    <div class="px-4 py-10 flex justify-center">
+                    <div class="px-4 py-10">
                         <h1 class="text-3xl ml-2 lg:ml-0 lg:text-4xl font-bold text-gray-700 tracking-normal lg:w-11/12 text-center"><span class="text-cyan-600">アクション</span>をきろく</h1>
                     </div>
                     <div class="px-6 xl:px-0">
@@ -12,8 +12,10 @@
                             <div role="cell" class="bg-gray-100">
                                 <div class="bg-white p-5 rounded-md relative h-full w-full">
                                     <!-- class="absolute inset-0 object-center object-cover h-full w-full"  -->
-                                    <span><img class="bg-gray-200 p-2 mb-5 rounded-full" src="https://i.ibb.co/27R6nk5/home-1.png" alt="home-1" /></span>
-                                    <h1 class="pb-4 text-2xl font-semibold text-gray-700 text-center">ごみ</h1>
+                                    <div class="flex">
+                                        <div class="text-2xl h-8 font-semibold text-gray-700 m-auto mr-0 border-dotted border-green-300 border-b-4">ごみ</div>
+                                        <%= image_tag 'separate.png', class:"w-32 h-32 m-auto" %>
+                                    </div>
                                     <div class="my-5">
                                         <% @activities[0,9].each do |activity| %>
                                             <%= form_with model: @user_activity, path: user_activities_path, local: true do |f|%>
@@ -36,8 +38,10 @@
                             <div role="cell" class="bg-gray-100">
                                 <div class="bg-white p-5 rounded-md relative h-full w-full">
                                     <!-- class="absolute inset-0 object-center object-cover h-full w-full"  -->
-                                    <span><img class="bg-gray-200 p-2 mb-5 rounded-full" src="https://i.ibb.co/bdGyLYk/pricetags-1.png" alt="pricetags-1" /></span>
-                                    <h1 class="pb-4 text-2xl font-semibold text-gray-700 text-center">スマートムーブ</h1>
+                                    <div class="flex">
+                                        <div class="text-2xl h-8 font-semibold text-gray-700 m-auto mr-0 border-dotted border-green-300 border-b-4">スマートムーブ</div>
+                                        <%= image_tag 'bus.png', class:"w-32 h-32 m-auto" %>
+                                    </div>
                                     <div class="my-5">
                                         <% @activities[10,4].each do |activity| %>
                                             <%= form_with model: @user_activity, path: user_activities_path, local: true do |f|%>
@@ -60,8 +64,10 @@
                             <div role="cell" class="bg-gray-100">
                                 <div class="bg-white p-5 rounded-md relative h-full w-full">
                                     <!-- class="absolute inset-0 object-center object-cover h-full w-full"  -->
-                                    <span><img class="bg-gray-200 p-2 mb-5 rounded-full" src="https://i.ibb.co/27R6nk5/home-1.png" alt="home-1" /></span>
-                                    <h1 class="pb-4 text-2xl font-semibold text-gray-700 text-center">学習</h1>
+                                    <div class="flex">
+                                        <div class="text-2xl h-8 font-semibold text-gray-700 m-auto mr-0 border-dotted border-green-300 border-b-4">学習</div>
+                                        <%= image_tag 'pc_girl.png', class:"w-32 h-32 m-auto" %>
+                                    </div>
                                     <div class="my-5">
                                         <% @activities[14,7].each do |activity| %>
                                             <%= form_with model: @user_activity, path: user_activities_path, local: true do |f|%>
@@ -84,8 +90,10 @@
                             <div role="cell" class="bg-gray-100">
                                 <div class="bg-white p-5 rounded-md relative h-full w-full">
                                     <!-- class="absolute inset-0 object-center object-cover h-full w-full"  -->
-                                    <span><img class="bg-gray-200 p-2 mb-5 rounded-full" src="https://i.ibb.co/bdGyLYk/pricetags-1.png" alt="pricetags-1" /></span>
-                                    <h1 class="pb-4 text-2xl font-semibold text-gray-700 text-center">食料</h1>
+                                    <div class="flex">
+                                        <div class="text-2xl h-8 font-semibold text-gray-700 m-auto mr-0 border-dotted border-green-300 border-b-4">食料</div>
+                                        <%= image_tag 'eating.png', class:"w-32 h-32 m-auto" %>
+                                    </div>
                                     <div class="my-5">
                                         <% @activities[21,2].each do |activity| %>
                                             <%= form_with model: @user_activity, path: user_activities_path, local: true do |f|%>
@@ -108,8 +116,10 @@
                             <div role="cell" class="bg-gray-100">
                                 <div class="bg-white p-5 rounded-md relative h-full w-full">
                                     <!-- class="absolute inset-0 object-center object-cover h-full w-full"  -->
-                                    <span><img class="bg-gray-200 p-2 mb-5 rounded-full" src="https://i.ibb.co/27R6nk5/home-1.png" alt="home-1" /></span>
-                                    <h1 class="pb-4 text-2xl font-semibold text-gray-700 text-center">水</h1>
+                                    <div class="flex">
+                                        <div class="text-2xl h-8 font-semibold text-gray-700 m-auto mr-0 border-dotted border-green-300 border-b-4">水</div>
+                                        <%= image_tag 'water.png', class:"w-32 h-32 m-auto" %>
+                                    </div>
                                     <div class="my-5">
                                         <% @activities[23,2].each do |activity| %>
                                             <%= form_with model: @user_activity, path: user_activities_path, local: true do |f|%>
@@ -132,8 +142,10 @@
                             <div role="cell" class="bg-gray-100">
                                 <div class="bg-white p-5 rounded-md relative h-full w-full">
                                     <!-- class="absolute inset-0 object-center object-cover h-full w-full"  -->
-                                    <span><img class="bg-gray-200 p-2 mb-5 rounded-full" src="https://i.ibb.co/bdGyLYk/pricetags-1.png" alt="pricetags-1" /></span>
-                                    <h1 class="pb-4 text-2xl font-semibold text-gray-700 text-center">電気</h1>
+                                    <div class="flex">
+                                        <div class="text-2xl h-8 font-semibold text-gray-700 m-auto mr-0 border-dotted border-green-300 border-b-4">電気</div>
+                                        <%= image_tag 'TV.png', class:"w-32 h-32 m-auto" %>
+                                    </div>
                                     <div class="my-5">
                                         <% @activities[25,11].each do |activity| %>
                                             <%= form_with model: @user_activity, path: user_activities_path, local: true do |f|%>

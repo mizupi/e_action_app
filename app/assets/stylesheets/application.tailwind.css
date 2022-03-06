@@ -11,3 +11,30 @@
 }
 
 */
+
+.icon {
+font-family: 'Montserrat', sans-serif;
+font-size: 20px;
+line-height: 60px;
+width: 60px;
+color: #fff;
+background: rgb(34 197 94);
+margin: 0 auto 20px;
+display: block;
+border-radius: 50%;
+text-align: center;
+position: relative;
+letter-spacing: 2px;
+}
+.icon::before {
+content: "";
+border: solid transparent;
+border-width: 8px;
+border-top-color: rgb(34 197 94);
+position: absolute;
+top: calc(100% - 2px);
+left: 50%;
+-webkit-transform: translateX(-50%);
+transform: translateX(-50%);
+}
+

@@ -42,12 +42,17 @@
       <%# これまでのアクション ここから%>
       <div class="w-auto h-auto p-7">
         <div class="px-4 p-10 flex justify-center">
-          <h1 class="text-3xl ml-2 lg:ml-0 lg:text-4xl font-bold text-gray-700 tracking-normal lg:w-11/12 text-center">これまでの<span class="text-cyan-600">アクション</span></h1>
+          <h1 class="text-3xl ml-2 lg:ml-0 lg:text-4xl font-bold text-gray-700 tracking-normal lg:w-11/12 text-center">これまでの<span class="text-green-600">アクション</span></h1>
         </div>
 
         <%# アコーディオンのセクション ここから%>
-        <% @activity_lists.each do |activity| %>
-        <div id="accordion-open" data-accordion="open">
+        <% created_date_old = '2000/01/01'.to_date %>
+
+        <div id="accordion-open" data-accordion="open"><!-- accordion-open -->
+        <% @activity_lists.each_with_index do |activity, index| %>
+        <% created_date = activity.created_at.to_date %>
+        <% unless created_date == created_date_old %>
+        <% unless index == 0 %></div><% end %>
           <h2 id="accordion-open-heading">
             <button type="button" class="flex justify-between items-center p-5 w-full font-medium text-left text-gray-900 bg-gray-100 rounded-t-xl border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 hover:bg-gray-100" data-accordion-target="#accordion-open-body-1" aria-expanded="true" aria-controls="accordion-open-body-1">
             <span class="flex items-center"><%= activity.created_at.strftime('%Y年%-m月%-d日') %></span>
@@ -55,14 +60,17 @@
             </button>
           </h2>
           <div id="accordion-open-body" aria-labelledby="accordion-open-heading">
+        <% end %>
             <div class="p-5 border border-b-0 border-gray-100">
               <div class="flex align-center mb-6 pl-6 text-gray-500 dark:text-gray-700">
                 <%= activity.activity_id %>
+                <%= activity.activity.activity %>
               </div>
             </div>
-          </div>
-        </div>
+        <% created_date_old = created_date %>
         <% end %>
+          </div>
+        </div><!-- //accordion-open -->
         <%# アコーディオンのセクション ここまで%>
 
       </div>

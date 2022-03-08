@@ -12,6 +12,7 @@
 
 */
 
+/* home#indexのふきだし */
 .icon {
 font-family: 'Montserrat', sans-serif;
 font-size: 20px;
@@ -37,4 +38,3 @@ left: 50%;
 -webkit-transform: translateX(-50%);
 transform: translateX(-50%);
 }
-

@@ -1,0 +1,17 @@
+<div class="accordion-open">
+  <% @activity_lists.each do |created_date, activity_list|%>
+    <dt class="accordion-open-heading">
+      <button type="button" class="flex justify-between items-center p-5 w-full font-medium text-left text-gray-900 bg-gray-100 rounded-t-xl border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 hover:bg-gray-100" data-accordion-target="#accordion-open-body-1" aria-expanded="true" aria-controls="accordion-open-body-1">
+      <span class="flex items-center"><%= created_date.strftime('%Y年%-m月%-d日') %></span>
+      <svg data-accordion-icon="" class="w-6 h-6 rotate-180 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+      </button>
+    </dt>
+    <div class="accordion-open-body">
+      <% activity_list.each do |user_activity| %>
+      <dd class="py-4 px-5 border-r border-l border-gray-100 text-gray-500">
+        <%= user_activity.activity.activity %>
+      </dd>
+      <% end %>
+    </div>
+  <% end %>
+</div>

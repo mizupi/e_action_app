@@ -12,6 +12,20 @@
               <circle cx="12" cy="7" r="4"></circle>
             </svg>
           </div>
+
+          <div class="relative bg-gray-100 p-3 rounded-lg text-sm uppercase font-semibold tracking-tight overflow-visible shadow cursor-pointer">
+            <%#= link_to 'ともだちになる', user_relationships_path(@user.id), method: :post %>
+            <%= button_to "ともだちになる", user_relationships_path(@user, current_user), method: :post %>
+            <%# form_for(@user.followers.build) do |f| %>
+              <%#= hidden_field_tag :follow_id, @user.id %>
+              <%#= f.submit t('button.follow') %>
+            <%# end %>
+            <%# <span class="flex h-3 w-3">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-3 w-3 bg-pink-500"></span>
+            </span> %>
+          </div>
+
         </div>
         <%# ユーザー情報右側、名前とメールアドレス %>
         <div class="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">

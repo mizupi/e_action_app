@@ -13,4 +13,9 @@ class UsersController < ApplicationController
       @activity_lists[created_date] << user_activity
     end
   end
+
+  def index
+    @friends = current_user.matchers
+    @users = User.all
+  end
 end

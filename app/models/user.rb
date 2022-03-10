@@ -31,13 +31,18 @@ class User < ApplicationRecord
     active_relationships.find_by(followed_id: other_user.id).destroy
   end
 
-  # 現在のユーザーがフォローしてたらtrueを返す
+  # 現在のユーザーがフォローしていたらtrueを返す
   def following?(other_user)
     following.include?(other_user)
   end
 
-  # 友達判定
+  # 現在のユーザーにフォローされていたらtrueを返す
+  def followers?(other_user)
+    followers.include?(other_user)
+  end
+
+  # ともだち判定
   def matchers
-    followings & followers
+    following & followers
   end
 end

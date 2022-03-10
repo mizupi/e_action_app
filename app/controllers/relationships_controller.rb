@@ -1,14 +1,14 @@
 class RelationshipsController < ApplicationController
   def create
-    Relationship.create(create_params)
-    redirect_to user_path(params[:user_id]), notice: "Requested successfully!"
+    user = User.find(params[:followed_id])
+    current_user.follow(user)
+    redirect_to user
   end
 
   def destroy
-    @user = current_user
-    @relationship =  Relationship.where(following_id: params[:id],follower_id:@user.id)
-    @relationship.destroy_all
-    redirect_to user_path(params[:id])
+    user = Relationship.find(params[:id]).followed
+    current_user.unfollow(user)
+    redirect_to user
   end
 
   private

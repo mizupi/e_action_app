@@ -45,4 +45,11 @@ class User < ApplicationRecord
   def matchers
     following & followers
   end
+
+  # ともだち検索
+  def self.search(search)
+    if search != ""
+      User.where('user_name LIKE(?)', "%#{search}%")
+    end
+  end
 end

@@ -19,4 +19,8 @@ class UsersController < ApplicationController
     @friends = current_user.matchers
     @users = User.all
   end
+
+  def search
+    @search_friends = User.search(params[:keyword])
+  end
 end

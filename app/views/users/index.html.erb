@@ -15,15 +15,16 @@
         
       <div class="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 xl:grid-cols-4">
         <% @friends.each do |user| %>
-          <div class="flex flex-col items-center p-8 transition-colors duration-200 transform cursor-pointer group hover:bg-green-400 rounded-xl">
-              <img class="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="">
-              
-              <h1 class="mt-4 text-2xl font-semibold text-gray-700 capitalize group-hover:text-white"><%= user.user_name %></h1>
-              
-              <p class="mt-2 text-gray-200 capitalize group-hover:hidden">　　　　　　　　　　　</p>
-              <%# <p class="mt-2 text-gray-200 capitalize hidden group-hover:inline">ともだちのページにいく</p> %>
-              <%= link_to 'ともだちのページにいく', user_path(user), class:"mt-2 text-gray-100 capitalize hidden group-hover:inline" %>
-          </div>
+          <%= link_to user_path(user) do %>
+            <div class="flex flex-col items-center p-8 transition-colors duration-200 transform cursor-pointer group hover:bg-green-400 rounded-xl">
+                <img class="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="">
+                
+                <h1 class="mt-4 text-2xl font-semibold text-gray-700 capitalize group-hover:text-white"><%= user.user_name %></h1>
+                
+                <p class="mt-2 text-gray-200 capitalize group-hover:hidden">　　　　　　　　　　　</p>
+                <p class="mt-2 text-gray-100 capitalize hidden group-hover:inline">ともだちのページにいく</p>
+            </div>
+          <% end %>
         <% end %>
       </div>
     </div>

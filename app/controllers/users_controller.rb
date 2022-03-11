@@ -2,8 +2,6 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @user_activities_today = @user.user_activities.where('created_at >= ?', Date.today).count
-    # @user_activities = @user.user_activities
-
     @user_activities = @user.user_activities.order('user_activities.created_at DESC')
 
     @activity_lists = {}
@@ -12,6 +10,9 @@ class UsersController < ApplicationController
       @activity_lists[created_date] = [] unless @activity_lists[created_date]
       @activity_lists[created_date] << user_activity
     end
+
+    @friends = current_user.matchers
+    
   end
 
   def index

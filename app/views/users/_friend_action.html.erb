@@ -1,18 +1,20 @@
-<div class="inline-block">
-  <div>今日のアクションの数</div>
-  <div class="flex p-6">
-    <% @friends.each do |user| %>
-      <%= link_to user_path(user) do %>
-        <div class="flex flex-col items-center p-1 group rounded-xl mr-4">
-          <div class="w-20 h-20 rounded-full inline-flex items-center justify-center bg-gray-200 text-gray-400">
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
-              <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
-              <circle cx="12" cy="7" r="4"></circle>
-            </svg>
+<% if @friends.present?%>
+  <div class="inline-block">
+    <div>今日のアクションの数</div>
+    <div class="flex p-6">
+      <% @friends.each do |user| %>
+        <%= link_to user_path(user) do %>
+          <div class="flex flex-col items-center p-1 group rounded-xl mr-4">
+            <div class="w-20 h-20 rounded-full inline-flex items-center justify-center bg-gray-200 text-gray-400">
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </div>
+            <div class="text-gray-600 text-sm"><%= user.user_activities.where('created_at >= ?', Date.today).count %></div>
           </div>
-          <div class="text-gray-600 text-sm"><%= user.user_activities.where('created_at >= ?', Date.today).count %></div>
-        </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
-</div>
+<% end %>

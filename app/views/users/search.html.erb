@@ -1,7 +1,7 @@
 <section class="bg-gray-100">
     <div class="container px-6 py-10 mx-auto text-center">
       <div class="">
-        <div class="text-3xl font-semibold text-center text-gray-800 capitalize lg:text-4xl">「<%= params[:keyword] %>」のけんさくけっか</div>
+        <div class="text-3xl font-semibold text-center text-gray-600 capitalize lg:text-3xl">「<%= params[:keyword] %>」のけんさくけっか</div>
 
         <div class="relative mx-auto w-60 mt-8">
             <span class="absolute inset-y-0 left-0 flex items-center pl-3">
@@ -14,21 +14,84 @@
             <% end %>
         </div>
       </div>
-        
+      
       <% if @search_friends.present? %>
-        <div class="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 xl:grid-cols-4">
-          <% @search_friends.each do |user| %>
-            <%= link_to user_path(user) do %>
-              <div class="flex flex-col items-center p-8 transition-colors duration-200 transform cursor-pointer group hover:bg-green-400 rounded-xl">
-                  <img class="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="">
-                  
-                  <h1 class="mt-4 text-2xl font-semibold text-gray-700 capitalize group-hover:text-white"><%= user.user_name %></h1>
-                  
-                  <p class="mt-2 text-gray-200 capitalize group-hover:hidden">　　　　　　　　　　　</p>
-                  <p class="mt-2 text-gray-100 capitalize hidden group-hover:inline"><%= user.user_name %>さんのページにいく</p>
+        <div class="container mx-auto px-4 sm:px-8 max-w-4xl">
+          <div class="py-8">
+            <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
+              <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
+                <table class="min-w-full leading-normal">
+                  <thead>
+                    <tr>
+                      <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal text-center">
+                        なまえ
+                      </th>
+                      <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal text-center">
+                        今日のアクション数
+                      </th>
+                      <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
+                        すべてのアクション数
+                      </th>
+                      <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal text-center"></th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <% @search_friends.each do |user| %>
+                      <tr>
+                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-lg">
+                          <div class="flex items-center">
+                            <div class="flex-shrink-0">
+                              <% unless user.image.blank? %>
+                                <div>
+                                  <%= image_tag user.image, class:"w-14 h-14 rounded-full inline-flex items-center justify-center object-cover block relative"%>
+                                </div>
+                              <% else %>
+                                <div class="w-14 h-14 rounded-full inline-flex items-center justify-center bg-gray-200 text-gray-400 block relative">
+                                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+                                    <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                  </svg>
+                                </div>
+                              <% end %>
+                            </div>
+                            <div class="ml-3">
+                              <p class="text-gray-900 whitespace-no-wrap">
+                                <%= user.user_name %>
+                              </p>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-xl text-center">
+                          <p class="text-gray-900 whitespace-no-wrap">
+                            <%= user.user_activities.where('created_at >= ?', Date.today).count %>
+                          </p>
+                        </td>
+                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-xl text-center">
+                          <p class="text-gray-900 whitespace-no-wrap">
+                            <%= user.user_activities.count %>
+                          </p>
+                        </td>
+                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-xl">
+                          <%= link_to user_path(user) do %>
+                            <span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight cursor-pointer">
+                              <span aria-hidden="true" class="absolute inset-0 bg-green-200 opacity-50 rounded-full ">
+                              </span>
+                                <span class="relative">
+                                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+                                  </svg>
+                                </span>
+                            </span>
+                          <% end %>
+                        </td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
               </div>
-            <% end %>
-          <% end %>
+            </div>
+          </div>
         </div>
       <% else %>
         <div class="text-xl mt-8 xl:mt-16">

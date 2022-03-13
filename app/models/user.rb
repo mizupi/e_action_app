@@ -48,10 +48,14 @@ class User < ApplicationRecord
     following & followers
   end
 
-  # ともだち検索
+  # ユーザー検索
   def self.search(search)
     if search != ""
       User.where('user_name LIKE(?)', "%#{search}%")
     end
   end
+
+  # ユーザー検索範囲から自分を除く
+  scope :others, -> (user) { where.not(id: user.id) }
+
 end

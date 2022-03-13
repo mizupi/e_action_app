@@ -10,11 +10,12 @@
                 </svg>
             </span>
             <%= form_with(url: search_users_path, local: true, method: :get) do |form| %>
-              <%= form.text_field :keyword, placeholder: "他のともだちを探す", class: "w-60 py-2 pl-10 pr-4 text-gray-700 bg-white border rounded-md  focus:border-blue-400 focus:outline-none focus:ring focus:ring-opacity-40 focus:ring-blue-300" %>
+              <%= form.text_field :keyword, placeholder: "ユーザーを探す", class: "w-60 py-2 pl-10 pr-4 text-gray-700 bg-white border rounded-md  focus:border-blue-400 focus:outline-none focus:ring focus:ring-opacity-40 focus:ring-blue-300" %>
             <% end %>
         </div>
       </div>
 
+      <% if @search_friends.present? %>
       <div class="container mx-auto px-4 sm:px-8 max-w-4xl">
         <div class="py-8">
           <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
@@ -92,6 +93,6 @@
           </div>
         </div>
       </div>
-
+      <% end %>
     </div>
 </section>

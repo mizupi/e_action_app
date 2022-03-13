@@ -11,16 +11,13 @@ class UsersController < ApplicationController
       @activity_lists[created_date] << user_activity
     end
 
-    @friends = current_user.matchers
-    
+    @friends = @user.matchers
   end
 
   def index
-    @friends = current_user.matchers
-    @users = User.all
   end
 
   def search
-    @search_friends = User.search(params[:keyword])
+    @search_friends = User.others(current_user).search(params[:keyword])
   end
 end

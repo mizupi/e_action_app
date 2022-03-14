@@ -22,7 +22,7 @@
 
           <% if current_user.id == @user.id %>
             <div class="sm:mt-8">
-              <%= link_to 'アカウントせってい', edit_user_registration_path(@user.id), class:"relative bg-green-400 text-gray-700 p-3 rounded-lg text-sm font-semibold shadow mb-4 inline-table" %>
+              <%= link_to 'アカウントせってい', edit_user_registration_path(current_user), class:"relative bg-green-400 text-gray-700 p-3 rounded-lg text-sm font-semibold shadow mb-4 inline-table" %>
             </div>
           <% elsif %>
             <%= render 'follow' %>

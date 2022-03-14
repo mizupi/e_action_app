@@ -3,11 +3,11 @@
             <div class="container mx-auto">
                 <div role="article" class="bg-gray-100 py-12 md:px-8">
                     <div class="px-4 py-10">
-                        <h1 class="text-3xl ml-2 lg:ml-0 lg:text-4xl font-bold text-gray-700 tracking-normal lg:w-11/12 text-center"><span class="text-cyan-600">アクション</span>をきろく</h1>
+                        <h1 class="text-3xl ml-2 lg:ml-0 lg:text-4xl font-bold text-gray-700 tracking-normal lg:w-11/12 text-center"><span class="text-green-600">アクション</span>をきろく</h1>
                     </div>
+
                     <div class="px-6 xl:px-0">
                         <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 pb-6 gap-8">
-
                             <%# ごみのセクション %>
                             <div role="cell" class="bg-gray-100">
                                 <div class="bg-white p-5 rounded-md relative h-full w-full">
@@ -19,13 +19,13 @@
                                     <div class="my-5">
                                         <% @activities[0,9].each do |activity| %>
                                             <%= form_with model: @user_activity, path: user_activities_path, local: true do |f|%>
-                                                <div class="flex align-center my-7">
+                                                <div class="flex align-center my-7 group">
                                                     <%= button_tag type: 'submit' do %>
-                                                        <svg xmlns=”http://www.w3.org/2000/svg” class="h-8 w-8 rounded-full text-green-500 hover:text-white hover:bg-green-500"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <svg xmlns=”http://www.w3.org/2000/svg” class="h-8 w-8 rounded-full text-green-500 group-hover:text-white group-hover:bg-green-500"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                                                         </svg>
                                                     <% end %>
-                                                    <h4 class="text-md text-gray-800 ml-4 hover:border-b-2 hover:border-green-500"><%= activity.activity %></h4>
+                                                    <h4 class="text-md text-gray-800 ml-4 group-hover:border-b-2 group-hover:border-green-400 group-hover:border-dotted"><%= activity.activity %></h4>
                                                     <%= f.hidden_field :activity_id, :value => activity.id %>
                                                 </div>
                                             <% end %>
@@ -45,13 +45,13 @@
                                     <div class="my-5">
                                         <% @activities[10,4].each do |activity| %>
                                             <%= form_with model: @user_activity, path: user_activities_path, local: true do |f|%>
-                                                <div class="flex align-center my-7">
+                                                <div class="flex align-center my-7 group">
                                                     <%= button_tag type: 'submit' do %>
-                                                        <svg xmlns=”http://www.w3.org/2000/svg” class="h-8 w-8 rounded-full text-green-500 hover:text-white hover:bg-green-500"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <svg xmlns=”http://www.w3.org/2000/svg” class="h-8 w-8 rounded-full text-green-500 group-hover:text-white group-hover:bg-green-500"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                                                         </svg>
                                                     <% end %>
-                                                    <h4 class="text-md text-gray-800 ml-4 hover:border-b-2 hover:border-green-500"><%= activity.activity %></h4>
+                                                    <h4 class="text-md text-gray-800 ml-4 group-hover:border-b-2 group-hover:border-green-400 group-hover:border-dotted"><%= activity.activity %></h4>
                                                     <%= f.hidden_field :activity_id, :value => activity.id %>
                                                 </div>
                                             <% end %>
@@ -71,13 +71,13 @@
                                     <div class="my-5">
                                         <% @activities[14,7].each do |activity| %>
                                             <%= form_with model: @user_activity, path: user_activities_path, local: true do |f|%>
-                                                <div class="flex align-center my-7">
+                                                <div class="flex align-center my-7 group">
                                                     <%= button_tag type: 'submit' do %>
-                                                        <svg xmlns=”http://www.w3.org/2000/svg” class="h-8 w-8 rounded-full text-green-500 hover:text-white hover:bg-green-500"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <svg xmlns=”http://www.w3.org/2000/svg” class="h-8 w-8 rounded-full text-green-500 group-hover:text-white group-hover:bg-green-500"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                                                         </svg>
                                                     <% end %>
-                                                    <h4 class="text-md text-gray-800 ml-4 hover:border-b-2 hover:border-green-500"><%= activity.activity %></h4>
+                                                    <h4 class="text-md text-gray-800 ml-4 group-hover:border-b-2 group-hover:border-green-400 group-hover:border-dotted"><%= activity.activity %></h4>
                                                     <%= f.hidden_field :activity_id, :value => activity.id %>
                                                 </div>
                                             <% end %>
@@ -97,13 +97,13 @@
                                     <div class="my-5">
                                         <% @activities[21,2].each do |activity| %>
                                             <%= form_with model: @user_activity, path: user_activities_path, local: true do |f|%>
-                                                <div class="flex align-center my-7">
+                                                <div class="flex align-center my-7 group">
                                                     <%= button_tag type: 'submit' do %>
-                                                        <svg xmlns=”http://www.w3.org/2000/svg” class="h-8 w-8 rounded-full text-green-500 hover:text-white hover:bg-green-500"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <svg xmlns=”http://www.w3.org/2000/svg” class="h-8 w-8 rounded-full text-green-500 group-hover:text-white group-hover:bg-green-500"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                                                         </svg>
                                                     <% end %>
-                                                    <h4 class="text-md text-gray-800 ml-4 hover:border-b-2 hover:border-green-500"><%= activity.activity %></h4>
+                                                    <h4 class="text-md text-gray-800 ml-4 group-hover:border-b-2 group-hover:border-green-400 group-hover:border-dotted"><%= activity.activity %></h4>
                                                     <%= f.hidden_field :activity_id, :value => activity.id %>
                                                 </div>
                                             <% end %>
@@ -123,13 +123,13 @@
                                     <div class="my-5">
                                         <% @activities[23,2].each do |activity| %>
                                             <%= form_with model: @user_activity, path: user_activities_path, local: true do |f|%>
-                                                <div class="flex align-center my-7">
+                                                <div class="flex align-center my-7 group">
                                                     <%= button_tag type: 'submit' do %>
-                                                        <svg xmlns=”http://www.w3.org/2000/svg” class="h-8 w-8 rounded-full text-green-500 hover:text-white hover:bg-green-500"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <svg xmlns=”http://www.w3.org/2000/svg” class="h-8 w-8 rounded-full text-green-500 group-hover:text-white group-hover:bg-green-500"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                                                         </svg>
                                                     <% end %>
-                                                    <h4 class="text-md text-gray-800 ml-4 hover:border-b-2 hover:border-green-500"><%= activity.activity %></h4>
+                                                    <h4 class="text-md text-gray-800 ml-4 group-hover:border-b-2 group-hover:border-green-400 group-hover:border-dotted"><%= activity.activity %></h4>
                                                     <%= f.hidden_field :activity_id, :value => activity.id %>
                                                 </div>
                                             <% end %>
@@ -149,13 +149,13 @@
                                     <div class="my-5">
                                         <% @activities[25,11].each do |activity| %>
                                             <%= form_with model: @user_activity, path: user_activities_path, local: true do |f|%>
-                                                <div class="flex align-center my-7">
+                                                <div class="flex align-center my-7 group">
                                                     <%= button_tag type: 'submit' do %>
-                                                        <svg xmlns=”http://www.w3.org/2000/svg” class="h-8 w-8 rounded-full text-green-500 hover:text-white hover:bg-green-500"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <svg xmlns=”http://www.w3.org/2000/svg” class="h-8 w-8 rounded-full text-green-500 group-hover:text-white group-hover:bg-green-500"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                                                         </svg>
                                                     <% end %>
-                                                    <h4 class="text-md text-gray-800 ml-4 hover:border-b-2 hover:border-green-500"><%= activity.activity %></h4>
+                                                    <h4 class="text-md text-gray-800 ml-4 group-hover:border-b-2 group-hover:border-green-400 group-hover:border-dotted"><%= activity.activity %></h4>
                                                     <%= f.hidden_field :activity_id, :value => activity.id %>
                                                 </div>
                                             <% end %>

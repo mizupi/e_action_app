@@ -13,8 +13,9 @@ class UsersController < ApplicationController
 
     @friends = @user.matchers
   end
-
+  
   def index
+    @friends = current_user.matchers
   end
 
   def search

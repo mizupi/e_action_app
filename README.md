@@ -1,51 +1,61 @@
+# アプリケーション名
+E ACTION
 
+# アプリケーション概要
+地球温暖化を防ぐための小さなアクションを促し、ユーザー同士で競争しながら、楽しんで取り組むことができる。
 
-## users テーブル
+# URL
+https://e-action-app.herokuapp.com/
 
-| Column             | Type     | Options                   |
-| ------------------ | -------- | ------------------------- |
-| user_name          | string   | null: false               |
-| email              | email    | null: false, unique: true |
-| encrypted_password | password | null: false               |
+# テスト用アカウント
+- Basic認証パスワード：testac
+- Basic認証ID：112233
+- メールアドレス：test@com
+- パスワード：aaa111
 
-### Association
+# 利用方法
+### アクションを記録する
+1. ヘッダーからユーザー新規登録を行う
+2. 「アクションをきろくする」リンクから、今日やったアクションを記録することができる
 
-- has_many :user_activities
-- has_many :active_relationships,  class_name: 'Relationship', foreign_key: 'follower_id', dependent: :destroy
-- has_many :passive_relationships, class_name: 'Relationship', foreign_key: 'followed_id', dependent: :destroy
-- has_many :following, through: :active_relationships,  source: :followed
-- has_many :followers, through: :passive_relationships, source: :follower
+### ともだち同士でアクションの数を競う
+1. ヘッダーの「マイページ」リンクから、ともだちの中でたくさんアクションを行った人を確認することができる。
 
-## relationships テーブル
+# アプリケーションを作成した背景
+社会的な課題であるSDGs、その中でも学生時代から興味のあった環境問題をテーマにした。<br>
+環境問題は、ESD(Education for Sustainable Development)「持続可能な開発のための教育」が重要であるといわれているため、毎日の暮らしの中で考えて学び気づかせる習慣づけが大切なのではないかと考えた。<br>
+そのため、主に小学生を対象とした地球温暖化を防ぐための小さなアクションを積み重ねを促すようなアプリケーションを開発することにした。
 
-| Column        | Type      |
-| --------------| --------- |
-| follower_id   | integer   |
-| followed_id   | integer   |
+# 洗い出した要件
+[要件を定義したシート](https://docs.google.com/spreadsheets/d/1DYce0bUXpwy_-cMakNjgt0aY63RMcGSHPrRZNuTcqRY/edit#gid=982722306) 
 
-### Association
+# 実装した機能についての画像等・その説明
 
-- belongs_to :follower, class_name: 'User'
-- belongs_to :followed, class_name: 'User'
+# 実装予定の機能
+今後はログイン時のSNS認証やSNSでの共有機能を実施予定
 
-## activitiesテーブル
+# データベース設計
+![er_image](https://user-images.githubusercontent.com/98501087/158367390-ed4442b6-8705-4448-a634-0c4c9b070ee9.png)
 
-| Column     | Type       | Options             |
-| ---------- | ---------- | ------------------- |
-| activity   | string     | null: false         |
+# 画面遷移図
+![screen_image](https://user-images.githubusercontent.com/98501087/158367455-38a1fbbb-1a79-4121-9866-ae0eb0abd5aa.png)
 
-### Association
+# 開発環境
+- バックエンド：Ruby###, Ruby on Rails###<br>
+- フロントエンド：JavaScript, Tailwind CSS<br>
+- インフラ：<br>
+- テスト：RSpec<br>
+- テキストエディタ：VScode<br>
+- タスク管理：GitHub<br>
 
-- has_many :user_activities
+# ローカルでの動作方法
+以下のコマンドを順に実行。<br>
+% git clone #<br>
+% cd XXXXXX<br>
+% bundle install<br>
+% yarn install<br>
 
-## user_activities テーブル
-
-| Column   | Type       | Options                        |
-| -------- | ---------- | ------------------------------ |
-| user     | references | null: false, foreign_key: true |
-| activity | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :user
-- belongs_to :activity
+# 工夫したポイント
+習慣づけをサポートするために、以下の2点を目標として開発を進めた。<br>
+**① 手軽さ**1：1回あたり短時間で記録できる<br>
+**② ゲーム性**：ユーザー同士で実績を競うことができる<br>

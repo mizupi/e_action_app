@@ -1,38 +1,42 @@
-# E-Actionのテーブル設計
+
 
 ## users テーブル
 
-| Column             | Type   | Options                   |
-| ------------------ | ------ | ------------------------- |
-| user_name          | string | null: false               |
-| email              | string | null: false, unique: true |
-| encrypted_password | string | null: false               |
+| Column             | Type     | Options                   |
+| ------------------ | -------- | ------------------------- |
+| user_name          | string   | null: false               |
+| email              | email    | null: false, unique: true |
+| encrypted_password | password | null: false               |
 
 ### Association
 
-- has_many :activities, through: :user_activities
-- has_many :relationships
+- has_many :user_activities
+- has_many :active_relationships,  class_name: 'Relationship', foreign_key: 'follower_id', dependent: :destroy
+- has_many :passive_relationships, class_name: 'Relationship', foreign_key: 'followed_id', dependent: :destroy
+- has_many :following, through: :active_relationships,  source: :followed
+- has_many :followers, through: :passive_relationships, source: :follower
 
 ## relationships テーブル
 
-| Column      | Type       | Options                                     |
-| ------------| ---------- | ------------------------------------------- |
-| user        | references | null: false, foreign_key: true              |
-| follow      | references | null: false, foreign_key: {to_table: users} |
+| Column        | Type      |
+| --------------| --------- |
+| follower_id   | integer   |
+| followed_id   | integer   |
 
 ### Association
 
-- belongs_to :user
+- belongs_to :follower, class_name: 'User'
+- belongs_to :followed, class_name: 'User'
 
 ## activitiesテーブル
 
 | Column     | Type       | Options             |
 | ---------- | ---------- | ------------------- |
-| act_name   | string     | null: false         |
+| activity   | string     | null: false         |
 
 ### Association
 
-- has_many :users, through: :user_activities
+- has_many :user_activities
 
 ## user_activities テーブル
 

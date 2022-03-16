@@ -24,7 +24,7 @@ https://e-action-app.herokuapp.com/
 # アプリケーションを作成した背景
 社会的な課題であるSDGs、その中でも学生時代から興味のあった環境問題をテーマにした。<br>
 環境問題は、ESD(Education for Sustainable Development)「持続可能な開発のための教育」が重要であるといわれているため、毎日の暮らしの中で考えて学び気づかせる習慣づけが大切なのではないかと考えた。<br>
-そのため、主に小学生を対象とした地球温暖化を防ぐための小さなアクションを積み重ねを促すようなアプリケーションを開発することにした。
+そのため、主に小学生を対象として小さなアクションを積み重ねを促すようなアプリケーションを開発することにした。
 
 # 洗い出した要件
 [要件を定義したシート](https://docs.google.com/spreadsheets/d/1DYce0bUXpwy_-cMakNjgt0aY63RMcGSHPrRZNuTcqRY/edit#gid=982722306) 
@@ -35,7 +35,7 @@ https://e-action-app.herokuapp.com/
 今後はログイン時のSNS認証やSNSでの共有機能を実施予定
 
 # データベース設計
-![er_image](https://user-images.githubusercontent.com/98501087/158367390-ed4442b6-8705-4448-a634-0c4c9b070ee9.png)
+![er_image](https://user-images.githubusercontent.com/98501087/158551234-edcc9504-93cc-4bd1-8c7c-328cb06f2f7e.png)
 
 # 画面遷移図
 ![screen_image](https://user-images.githubusercontent.com/98501087/158367455-38a1fbbb-1a79-4121-9866-ae0eb0abd5aa.png)

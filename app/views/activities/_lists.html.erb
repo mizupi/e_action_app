@@ -1,0 +1,159 @@
+<div class="px-6 xl:px-0">
+    <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 pb-6 gap-8">
+        <%# ごみのセクション %>
+        <div role="cell" class="bg-gray-100">
+            <div class="bg-white p-5 rounded-md relative h-full w-full">
+                <!-- class="absolute inset-0 object-center object-cover h-full w-full"  -->
+                <div class="flex">
+                    <div class="text-2xl h-8 font-semibold text-gray-700 m-auto mr-0 border-dotted border-green-300 border-b-4">ごみ</div>
+                    <%= image_tag 'separate.png', class:"w-32 h-32 m-auto" %>
+                </div>
+                <div class="my-5">
+                    <% @activities[0,9].each do |activity| %>
+                        <%= form_with model: @user_activity, path: user_activities_path, local: true do |f|%>
+                            <div class="flex align-center my-7 group">
+                                <%= button_tag type: 'submit' do %>
+                                    <svg xmlns=”http://www.w3.org/2000/svg” class="h-8 w-8 rounded-full text-green-500 group-hover:text-white group-hover:bg-green-500"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                <% end %>
+                                <h4 class="text-md text-gray-800 ml-4 group-hover:border-b-2 group-hover:border-green-400 group-hover:border-dotted"><%= activity.activity %></h4>
+                                <%= f.hidden_field :activity_id, :value => activity.id %>
+                            </div>
+                        <% end %>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+
+        <%# スマートムーブのセクション %>
+        <div role="cell" class="bg-gray-100">
+            <div class="bg-white p-5 rounded-md relative h-full w-full">
+                <!-- class="absolute inset-0 object-center object-cover h-full w-full"  -->
+                <div class="flex">
+                    <div class="text-2xl h-8 font-semibold text-gray-700 m-auto mr-0 border-dotted border-green-300 border-b-4">スマートムーブ</div>
+                    <%= image_tag 'bus.png', class:"w-32 h-32 m-auto" %>
+                </div>
+                <div class="my-5">
+                    <% @activities[10,4].each do |activity| %>
+                        <%= form_with model: @user_activity, path: user_activities_path, local: true do |f|%>
+                            <div class="flex align-center my-7 group">
+                                <%= button_tag type: 'submit' do %>
+                                    <svg xmlns=”http://www.w3.org/2000/svg” class="h-8 w-8 rounded-full text-green-500 group-hover:text-white group-hover:bg-green-500"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                <% end %>
+                                <h4 class="text-md text-gray-800 ml-4 group-hover:border-b-2 group-hover:border-green-400 group-hover:border-dotted"><%= activity.activity %></h4>
+                                <%= f.hidden_field :activity_id, :value => activity.id %>
+                            </div>
+                        <% end %>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+
+        <%# 学習のセクション %>
+        <div role="cell" class="bg-gray-100">
+            <div class="bg-white p-5 rounded-md relative h-full w-full">
+                <!-- class="absolute inset-0 object-center object-cover h-full w-full"  -->
+                <div class="flex">
+                    <div class="text-2xl h-8 font-semibold text-gray-700 m-auto mr-0 border-dotted border-green-300 border-b-4">学習</div>
+                    <%= image_tag 'pc_girl.png', class:"w-32 h-32 m-auto" %>
+                </div>
+                <div class="my-5">
+                    <% @activities[14,7].each do |activity| %>
+                        <%= form_with model: @user_activity, path: user_activities_path, local: true do |f|%>
+                            <div class="flex align-center my-7 group">
+                                <%= button_tag type: 'submit' do %>
+                                    <svg xmlns=”http://www.w3.org/2000/svg” class="h-8 w-8 rounded-full text-green-500 group-hover:text-white group-hover:bg-green-500"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                <% end %>
+                                <h4 class="text-md text-gray-800 ml-4 group-hover:border-b-2 group-hover:border-green-400 group-hover:border-dotted"><%= activity.activity %></h4>
+                                <%= f.hidden_field :activity_id, :value => activity.id %>
+                            </div>
+                        <% end %>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+
+        <%# 食料のセクション %>
+        <div role="cell" class="bg-gray-100">
+            <div class="bg-white p-5 rounded-md relative h-full w-full">
+                <!-- class="absolute inset-0 object-center object-cover h-full w-full"  -->
+                <div class="flex">
+                    <div class="text-2xl h-8 font-semibold text-gray-700 m-auto mr-0 border-dotted border-green-300 border-b-4">食料</div>
+                    <%= image_tag 'eating.png', class:"w-32 h-32 m-auto" %>
+                </div>
+                <div class="my-5">
+                    <% @activities[21,2].each do |activity| %>
+                        <%= form_with model: @user_activity, path: user_activities_path, local: true do |f|%>
+                            <div class="flex align-center my-7 group">
+                                <%= button_tag type: 'submit' do %>
+                                    <svg xmlns=”http://www.w3.org/2000/svg” class="h-8 w-8 rounded-full text-green-500 group-hover:text-white group-hover:bg-green-500"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                <% end %>
+                                <h4 class="text-md text-gray-800 ml-4 group-hover:border-b-2 group-hover:border-green-400 group-hover:border-dotted"><%= activity.activity %></h4>
+                                <%= f.hidden_field :activity_id, :value => activity.id %>
+                            </div>
+                        <% end %>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+
+        <%# 水のセクション %>
+        <div role="cell" class="bg-gray-100">
+            <div class="bg-white p-5 rounded-md relative h-full w-full">
+                <!-- class="absolute inset-0 object-center object-cover h-full w-full"  -->
+                <div class="flex">
+                    <div class="text-2xl h-8 font-semibold text-gray-700 m-auto mr-0 border-dotted border-green-300 border-b-4">水</div>
+                    <%= image_tag 'water.png', class:"w-32 h-32 m-auto" %>
+                </div>
+                <div class="my-5">
+                    <% @activities[23,2].each do |activity| %>
+                        <%= form_with model: @user_activity, path: user_activities_path, local: true do |f|%>
+                            <div class="flex align-center my-7 group">
+                                <%= button_tag type: 'submit' do %>
+                                    <svg xmlns=”http://www.w3.org/2000/svg” class="h-8 w-8 rounded-full text-green-500 group-hover:text-white group-hover:bg-green-500"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                <% end %>
+                                <h4 class="text-md text-gray-800 ml-4 group-hover:border-b-2 group-hover:border-green-400 group-hover:border-dotted"><%= activity.activity %></h4>
+                                <%= f.hidden_field :activity_id, :value => activity.id %>
+                            </div>
+                        <% end %>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+
+        <%# 電気のセクション %>
+        <div role="cell" class="bg-gray-100">
+            <div class="bg-white p-5 rounded-md relative h-full w-full">
+                <!-- class="absolute inset-0 object-center object-cover h-full w-full"  -->
+                <div class="flex">
+                    <div class="text-2xl h-8 font-semibold text-gray-700 m-auto mr-0 border-dotted border-green-300 border-b-4">電気</div>
+                    <%= image_tag 'TV.png', class:"w-32 h-32 m-auto" %>
+                </div>
+                <div class="my-5">
+                    <% @activities[25,11].each do |activity| %>
+                        <%= form_with model: @user_activity, path: user_activities_path, local: true do |f|%>
+                            <div class="flex align-center my-7 group">
+                                <%= button_tag type: 'submit' do %>
+                                    <svg xmlns=”http://www.w3.org/2000/svg” class="h-8 w-8 rounded-full text-green-500 group-hover:text-white group-hover:bg-green-500"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                <% end %>
+                                <h4 class="text-md text-gray-800 ml-4 group-hover:border-b-2 group-hover:border-green-400 group-hover:border-dotted"><%= activity.activity %></h4>
+                                <%= f.hidden_field :activity_id, :value => activity.id %>
+                            </div>
+                        <% end %>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

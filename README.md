@@ -41,7 +41,7 @@ https://e-action-app.herokuapp.com/
 ![screen_image](https://user-images.githubusercontent.com/98501087/158367455-38a1fbbb-1a79-4121-9866-ae0eb0abd5aa.png)
 
 # 開発環境
-- バックエンド：Ruby###, Ruby on Rails###<br>
+- バックエンド：Ruby 3.1.1, Ruby on Rails 7.0.2<br>
 - フロントエンド：JavaScript, Tailwind CSS<br>
 - インフラ：<br>
 - テスト：RSpec<br>

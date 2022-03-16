@@ -1,41 +1,50 @@
-<%= form_with model: @contact, local: true do |f| %>
-  <div class='form-wrap'>
-    <div class='form-header'>
-      <h5 class='form-header-text'>
-        リクエストフォーム
-      </h5>
+<div class="min-h-screen flex flex-col items-center pt-6 bg-white">
+  <div class="flex flex-col bg-white shadow-lg px-4 sm:px-6 md:px-8 lg:px-10 py-8 mt-4 rounded-3xl w-50 max-w-md">
+    <div class="font-bold self-center text-xl sm:text-3xl text-green-500">
+      リクエストフォーム
     </div>
-  </div>
-  <div class="correct-msg-box">
-      <% if @contact.errors.any? %>
-        <div id="error_explanation">
-          <ul><% @contact.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-            <% end %>
-          </ul>
+    <div class="mt-4 self-center text-xl sm:text-sm text-gray-800">
+      追加したいアクションのリクエストをしましょう
+    </div>
+
+    <div class="mt-6">
+      <%= form_with model: @contact, local: true do |f| %>
+
+        <% if @contact.errors.any? %>
+          <div id="error_explanation">
+            <ul><% @contact.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="flex flex-col mb-5">
+          <label for="name" class="mb-1 pl-3 text-xs sm:text-sm tracking-wide text-gray-600">なまえ</label>
+          <div class="relative">
+            <%= f.text_field :name, class:"text-sm pl-10 pr-4 rounded-2xl border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400", id:"name"%>
+          </div>
+        </div>
+
+        <div class="flex flex-col mb-6">
+          <label for="password" class="mb-1 pl-3 text-xs sm:text-sm tracking-wide text-gray-600">リクエスト内容（100文字まで）</label>
+          <div class="relative">
+            <%= f.text_area :content, class:"text-sm placeholder-gray-500 pl-2 pr-4 rounded-2xl border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400 h-48", id:"content", placeholder:"（例）レジぶくろをもらわない" %>
+          </div>
+        </div>
+
+        <div class="flex w-full">
+          <%= button_tag type: "submit", class: "flex mt-2 items-center justify-center focus:outline-none text-white text-sm sm:text-base bg-green-500 hover:bg-green-600 rounded-2xl py-2 w-full transition duration-150 ease-in" do %>
+            <span class="mr-2">リクエスト送信</span>
+            <span>
+              <svg class="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                <path d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </span>
+          <% end %>
         </div>
       <% end %>
-      <div class="correct-msg-main">
-        <div class="contact-form">
-            <div class="correct-text-field">
-              <%= f.label "お名前" %>
-              <%= f.text_field :name, placeholder: "お名前", class: "input-form" %>
-            </div>
-            <div class="correct-text-field">
-              <%= f.label "リクエスト内容" %>
-              <%= f.text_area :content, placeholder: "リクエスト内容を入力してください", class: "input-form" %>
-            </div>
-            <div class="send-btn-contents">
-              <div class="register-btn">
-                <%= f.button type: "submit", class:"register-red-btn", style:'border-style: none;' do %> 
-                  送信 <i class="fas fa-paper-plane"></i>
-                <% end %>
-              </div>
-              <div class="register-btn">
-                <%= link_to "もどる", root_path, class:"register-red-btn", style:"background-color: #aaa" %>
-              </div>
-            </div>
-        </div>
-      </div>
+
+    </div>
   </div>
-<% end %>
+</div>

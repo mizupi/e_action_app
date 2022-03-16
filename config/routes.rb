@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'homes#index'
 
   resources :activities, only: [:new, :create]
-  resources :users, only: [:show, :index] do
+  resources :users, only: [:show, :index, :destroy] do
     collection do
       get 'search'
     end

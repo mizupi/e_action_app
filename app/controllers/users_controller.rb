@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
+
   def show
     @user = User.find(params[:id])
     @user_activities_today = @user.user_activities.where('created_at >= ?', Date.today).count
@@ -12,6 +14,12 @@ class UsersController < ApplicationController
     end
 
     @friends = @user.matchers
+  end
+
+  def destroy
+    user_activity = UserActivity.find(params[:id])
+    user_activity.destroy
+    redirect_to user_path(current_user)
   end
   
   def index

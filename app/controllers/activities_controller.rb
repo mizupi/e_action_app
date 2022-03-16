@@ -1,5 +1,5 @@
 class ActivitiesController < ApplicationController
-  before_action :move_to_root
+  before_action :authenticate_user!
 
   def new
     @user_activity = Activity.new
@@ -11,9 +11,4 @@ class ActivitiesController < ApplicationController
     @user_activity.save
   end
 
-  private
-
-  def move_to_root
-    redirect_to root_path unless user_signed_in?
-  end
 end

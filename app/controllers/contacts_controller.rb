@@ -19,6 +19,6 @@ class ContactsController < ApplicationController
   private
 
     def contact_params
-      params.require(:contact).permit(:name, :content)
+      params.require(:contact).permit(:name, :content).merge(user_id: current_user.id)
     end
 end

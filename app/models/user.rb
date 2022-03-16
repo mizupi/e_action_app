@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :user_activities
+  has_many :contacts
 
   has_many :active_relationships,  class_name: 'Relationship',
                                    foreign_key: 'follower_id',

@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   end
   resources :user_activities, only: [:new, :create]
   resources :relationships, only: [:create, :destroy]
-
+  resources :contacts, only: [:new, :create]
 end

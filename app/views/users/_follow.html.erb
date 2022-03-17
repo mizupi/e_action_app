@@ -4,7 +4,7 @@
     <% if current_user.followers?(@user) %>
       <div class="relative bg-green-400 text-gray-700 p-3 rounded-lg text-sm font-semibold shadow mb-4 inline-table">ともだち</div>
       <%= form_with(model: current_user.active_relationships.find_by(followed_id: @user.id),
-      html: { method: :delete }, local: true) do |f| %>
+      html: { method: :delete }, data: { turbo_confirm: 'ともだちを取り消しますか？' }, local: true) do |f| %>
         <%= button_tag type: 'submit' do %>
           <span class="text-xs text-gray-500 tracking-tight cursor-pointer hover:border-b-2">→ ともだちをやめる</span>
         <% end %>
@@ -13,7 +13,7 @@
     <%# 現在のユーザーにともだちリクエスト中で、相手が承認していない場合？ %>
     <% else %>
       <%= form_with(model: current_user.active_relationships.find_by(followed_id: @user.id),
-      html: { method: :delete }, local: true) do |f| %>
+      html: { method: :delete }, data: { turbo_confirm: 'リクエストを取り消しますか？' }, local: true) do |f| %>
         <%= button_tag type: 'submit' do %>
           <div class="relative bg-yellow-400 text-gray-600 p-3 rounded-lg text-sm font-semibold tracking-tight shadow coursor-pointer w-auto">
             <span class="hover:hidden">ともだちリクエスト中</span>

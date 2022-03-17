@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     user_activity.destroy
     redirect_to user_path(current_user)
   end
-  
+
   def index
     @friends = current_user.matchers
   end

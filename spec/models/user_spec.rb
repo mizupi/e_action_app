@@ -41,7 +41,7 @@ RSpec.describe User, type: :model do
       it 'user_nameが11文字以上だと登録できない' do
         @user.user_name = Faker::String.random(length: 11)
         @user.valid?
-        expect(@user.errors.full_messages).to include("User name is too long (maximum is 10 characters)")
+        expect(@user.errors.full_messages).to include('User name is too long (maximum is 10 characters)')
       end
       it '重複したemailが存在する場合は登録できない' do
         @user.save

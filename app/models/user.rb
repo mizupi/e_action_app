@@ -50,12 +50,9 @@ class User < ApplicationRecord
 
   # ユーザー検索
   def self.search(search)
-    if search != ""
-      User.where('user_name LIKE(?)', "%#{search}%")
-    end
+    User.where('user_name LIKE(?)', "%#{search}%") if search != ''
   end
 
   # ユーザー検索範囲から自分を除く
-  scope :others, -> (user) { where.not(id: user.id) }
-
+  scope :others, ->(user) { where.not(id: user.id) }
 end

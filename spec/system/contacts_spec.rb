@@ -22,16 +22,16 @@ RSpec.describe "Contacts", type: :system do
     @contact = FactoryBot.create(:contact)
   end
 
-  it 'ログインしたユーザーはアクション一覧ページから他のアクションのリクエストできる' do
+  it 'ログインしたユーザーはアクションリクエストフォームからリクエストできる' do
     # ログインする
     basic_pass root_path
     sign_in(@contact.user)
-    # アクション一覧ページに遷移する
+    # リクエストフォームページに遷移する
     visit new_contact_path
     # フォームに情報を入力する
     fill_in 'contact[name]', with: @contact.name
     fill_in 'contact[content]', with: @contact.content
-    # コメントを送信すると、Commentモデルのカウントが1上がることを確認する
+    # コメントを送信すると、Contactモデルのカウントが1上がることを確認する
     sleep 0.5
     expect{find('button[name="button"]').click}.to change {Contact.count }.by(1)
     sleep 0.5

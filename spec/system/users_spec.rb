@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 def basic_pass(path)
-  username = ENV["BASIC_AUTH_USER"]
-  password = ENV["BASIC_AUTH_PASSWORD"]
+  username = ENV['BASIC_AUTH_USER']
+  password = ENV['BASIC_AUTH_PASSWORD']
   visit "http://#{username}:#{password}@#{Capybara.current_session.server.host}:#{Capybara.current_session.server.port}#{path}"
 end
 
@@ -11,7 +11,7 @@ RSpec.describe 'ユーザー新規登録', type: :system do
     @user = FactoryBot.build(:user)
     sleep 0.5
   end
-  context 'ユーザー新規登録ができるとき' do 
+  context 'ユーザー新規登録ができるとき' do
     it '正しい情報を入力すればユーザー新規登録ができてトップページに移動する' do
       # トップページに移動する
       basic_pass root_path
@@ -26,9 +26,9 @@ RSpec.describe 'ユーザー新規登録', type: :system do
       fill_in 'user[password]', with: @user.password
       fill_in 'user[password_confirmation]', with: @user.password_confirmation
       # サインアップボタンを押すとユーザーモデルのカウントが1上がることを確認する
-      expect{
+      expect  do
         find('button[name="button"]').click
-      }.to change { User.count }.by(1)
+      end.to change { User.count }.by(1)
       # トップページへ遷移したことを確認する
       expect(current_path).to eq(root_path)
       # ヘッダーにログアウトボタンが表示されることを確認する
@@ -53,9 +53,9 @@ RSpec.describe 'ユーザー新規登録', type: :system do
       fill_in 'user[password]', with: ''
       fill_in 'user[password_confirmation]', with: ''
       # サインアップボタンを押してもユーザーモデルのカウントは上がらないことを確認する
-      expect{
+      expect  do
         find('button[name="button"]').click
-      }.to change { User.count }.by(0)
+      end.to change { User.count }.by(0)
       # 新規登録ページへ戻されることを確認する
       expect(current_path).to eq new_user_registration_path
     end

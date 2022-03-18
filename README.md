@@ -32,7 +32,7 @@ https://e-action-app.herokuapp.com/
 # 実装した機能についての画像等・その説明
 
 # 実装予定の機能
-今後はログイン時のSNS認証やSNSでの共有機能を実施予定
+フォローリクエストがあった際およびリクエスト承認された際に通知される機能を追加予定
 
 # データベース設計
 ![er_image](https://user-images.githubusercontent.com/98501087/158551234-edcc9504-93cc-4bd1-8c7c-328cb06f2f7e.png)
@@ -41,10 +41,10 @@ https://e-action-app.herokuapp.com/
 ![screen_image](https://user-images.githubusercontent.com/98501087/158367455-38a1fbbb-1a79-4121-9866-ae0eb0abd5aa.png)
 
 # 開発環境
-- バックエンド：Ruby 3.1.1, Ruby on Rails 7.0.2<br>
-- フロントエンド：JavaScript, Tailwind CSS<br>
+- バックエンド：Ruby 3.1.1 / Ruby on Rails 7.0.2<br>
+- フロントエンド：JavaScript / Tailwind CSS<br>
 - インフラ：<br>
-- テスト：RSpec<br>
+- テスト：RSpec / System Spec<br>
 - テキストエディタ：VScode<br>
 - タスク管理：GitHub<br>
 

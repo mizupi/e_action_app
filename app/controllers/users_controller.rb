@@ -13,7 +13,7 @@ class UsersController < ApplicationController
       @activity_lists[created_date] << user_activity
     end
 
-    @friends = @user.matchers
+    @friends = @user.matchers.take(3)
   end
 
   def destroy

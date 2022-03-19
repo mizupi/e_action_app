@@ -11,7 +11,7 @@
 
 <%# 新規登録とログインのボタン %>
 <% unless user_signed_in? %>
-    <div class="container px-6 py-20 mx-auto flex justify-center text-xl">
+    <div class="container px-6 pb-20 pt-12 mx-auto flex justify-center text-xl">
         <div class="items-center lg:flex justify-center">
             <%= link_to '新しくはじめる', new_user_registration_path, class:"px-6 py-2 mr-28 rounded-full text-white bg-green-500 hover:bg-green-600 border-2 border-none focus:outline-none shadow" %>
             <%= link_to 'ログイン', new_user_session_path, class:"px-6 py-2 rounded-full text-white bg-green-500 hover:bg-green-600 border-2 border-none focus:outline-none shadow" %>

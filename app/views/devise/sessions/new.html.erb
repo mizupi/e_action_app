@@ -1,19 +1,19 @@
-<div class="min-h-screen flex flex-col items-center pt-12 bg-white">
+<div class="min-h-screen flex flex-col items-center pt-12 bg-amber-50">
   <div class="flex flex-col bg-white shadow-lg px-4 sm:px-6 md:px-8 lg:px-10 py-8 mt-4 rounded-3xl w-50 max-w-md">
     <div class="font-bold self-center text-xl sm:text-3xl text-green-500">
-      Log In
+      ログイン
     </div>
-    <div class="mt-4 self-center text-xl sm:text-sm text-gray-800">
-      Log in your account!
+    <div class="mt-4 self-center text-xl sm:text-base text-yellow-900">
+      こうもくを入力してください
     </div>
 
     <div class="mt-6">
       <%= form_with model: @user, url: user_session_path, class:"pt-3", local: true do |f| %>
 
-      <%= render "devise/shared/error_messages", model: f.object %> 
+        <%= render "devise/shared/error_messages", model: f.object %> 
 
         <div class="flex flex-col mb-5">
-          <label for="email" class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600">メールアドレス</label>
+          <label for="email" class="mb-1 text-xs sm:text-sm tracking-wide text-yellow-900">メールアドレス</label>
           <div class="relative">
             <div class="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-green-500">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -25,7 +25,7 @@
           </div>
         </div>
         <div class="flex flex-col mb-6">
-          <label for="password" class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600">パスワード（英数字6文字）</label>
+          <label for="password" class="mb-1 text-xs sm:text-sm tracking-wide text-yellow-900">パスワード（英数字6文字）</label>
           <div class="relative">
             <div class="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-green-500">
               <span>
@@ -50,7 +50,12 @@
           <% end %>
         </div>
       <% end %>
-
     </div>
+  </div>
+
+  <div class="flex justify-center items-center mt-6">
+    <span class="ml-2 text-yellow-900 font-medium text-xs">まだアカウントを作っていませんか？
+      <%= link_to '新しくはじめる', new_user_registration_path, class:"text-sm ml-2 text-green-600 font-semibold" %>
+    </span>
   </div>
 </div>

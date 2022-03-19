@@ -2,7 +2,7 @@
   <% if current_user.following?(@user) %>
     <%# 現在のユーザーと相互フォロー状態にある場合 %>
     <% if current_user.followers?(@user) %>
-      <div class="relative bg-green-400 text-gray-700 p-3 rounded-lg text-sm font-semibold shadow mb-4 inline-table">ともだち</div>
+      <div class="relative bg-green-300 text-yellow-900 p-3 rounded-lg text-sm font-semibold shadow mb-4 inline-table">ともだち</div>
       <%= form_with(model: current_user.active_relationships.find_by(followed_id: @user.id),
       html: { method: :delete }, data: { turbo_confirm: 'ともだちを取り消しますか？' }, local: true) do |f| %>
         <%= button_tag type: 'submit' do %>
@@ -15,10 +15,7 @@
       <%= form_with(model: current_user.active_relationships.find_by(followed_id: @user.id),
       html: { method: :delete }, data: { turbo_confirm: 'リクエストを取り消しますか？' }, local: true) do |f| %>
         <%= button_tag type: 'submit' do %>
-          <div class="relative bg-yellow-400 text-gray-600 p-3 rounded-lg text-sm font-semibold tracking-tight shadow coursor-pointer w-auto">
-            <span class="hover:hidden">ともだちリクエスト中</span>
-            <span class="hidden hover:inline">リクエストを取り消す</span>
-          </div>
+          <div class="relative bg-yellow-300 hover:bg-yellow-400 text-yellow-900 p-3 rounded-lg text-sm font-semibold tracking-tight shadow coursor-pointer w-auto block" id="friend-status"></div>
         <% end %>
       <% end %>
     <% end %>
@@ -28,7 +25,7 @@
     <%= form_with(model: current_user.active_relationships.build, local: true) do |f| %>
       <div><%= hidden_field_tag :followed_id, @user.id %></div>
       <%= button_tag type: 'submit' do %>
-        <div class="relative bg-green-500 text-white p-3 rounded-lg text-sm font-semibold tracking-tight shadow cursor-pointer w-auto">
+        <div class="relative bg-green-600 text-gray-100 p-3 rounded-lg text-sm font-semibold tracking-tight shadow cursor-pointer w-auto">
         ともだちリクエストを送る
         </div>
       <% end %>

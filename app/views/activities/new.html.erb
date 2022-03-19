@@ -4,9 +4,17 @@
         <div role="article" class="bg-gray-100 py-12 md:px-8">
             <div class="px-4 py-10">
                 <h1 class="text-3xl ml-2 lg:ml-0 lg:text-4xl font-bold text-yellow-900 tracking-normal text-center"><span class="text-green-600">アクション</span>をきろく</h1>
+                <div class="text-yellow-900 text-center mt-8">
+                    <svg xmlns=”http://www.w3.org/2000/svg” class="h-8 w-8 rounded-full text-green-500 inline"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    をクリックしてきろくしましょう
+                </div>
             </div>
             <div class="mb-2 text-right text-yellow-900 text-base">出典：環境省 こども環境白書</div>
+
             <%= render 'lists' %>
+
             <div class="text-center my-12 text-lg text-yellow-900">
                 他のアクションをきろくしたい方は
                 <%= link_to 'こちら', new_contact_path( user_id: current_user.id ), class:"text-green-600 hover:text-green-700 font-bold hover:border-b hover:border-green-700" %>

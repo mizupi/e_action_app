@@ -83,11 +83,9 @@
 
     </div>
   </div>
-  <div class="flex justify-center items-center mt-6">
-    <a href="#" target="_blank" class="inline-flex items-center text-gray-700 font-medium text-xs text-center">
-      <span class="ml-2">すでにアカウントを持っていますか？
-        <a href="#" class="text-xs ml-2 text-green-600 font-semibold">ここからログイン</a>
-        </span>
-    </a>
+    <div class="flex justify-center items-center mt-6">
+    <span class="ml-2 text-yellow-900 font-medium text-xs">すでにアカウントを持っていますか？
+      <%= link_to 'ここからログイン', new_user_session_path, class:"text-sm ml-2 text-green-600 font-semibold" %>
+    </span>
   </div>
 </div>

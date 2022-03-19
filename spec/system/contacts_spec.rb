@@ -17,7 +17,7 @@ def sign_in(user)
   sleep 0.5
 end
 
-RSpec.describe "Contacts", type: :system do
+RSpec.describe 'Contacts', type: :system do
   before do
     @contact = FactoryBot.create(:contact)
   end
@@ -33,7 +33,7 @@ RSpec.describe "Contacts", type: :system do
     fill_in 'contact[content]', with: @contact.content
     # コメントを送信すると、Contactモデルのカウントが1上がることを確認する
     sleep 0.5
-    expect{find('button[name="button"]').click}.to change {Contact.count }.by(1)
+    expect { find('button[name="button"]').click }.to change { Contact.count }.by(1)
     sleep 0.5
     # 詳細ページにリダイレクトされることを確認する
     expect(current_path).to eq(root_path)

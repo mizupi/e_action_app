@@ -15,7 +15,7 @@ def sign_in(user)
   sleep 0.5
 end
 
-RSpec.describe "アクション記録", type: :system do
+RSpec.describe 'アクション記録', type: :system do
   before do
     @user_activity = FactoryBot.create(:user_activity)
     sleep 0.5
@@ -27,12 +27,12 @@ RSpec.describe "アクション記録", type: :system do
       basic_pass root_path
       sign_in(@user_activity.user)
       # アクションページに遷移するリンクを見つけて移動する
-      find_link("アクションをきろく", href: "/activities/new").click
+      find_link('アクションをきろく', href: '/activities/new').click
       expect(current_path).to eq(new_activity_path)
       # アクションボタンを見つけてクリックすると、UserActivityモデルのカウントが1上がることを確認する
-      expect {
+      expect do
         find('button[name="button"]').click
-      }.to change {UserActivity.count }.by(1)
+      end.to change { UserActivity.count }.by(1)
       sleep 0.5
       # ページが移動しないことを確認する
       expect(current_path).to eq(new_activity_path)

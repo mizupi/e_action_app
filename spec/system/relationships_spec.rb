@@ -42,10 +42,10 @@ RSpec.describe 'Relationships', type: :system do
 
       # @user2をフォロー解除する
       find('button[name="button"]').click
-      expect{
+      expect do
         expect(page.accept_confirm).to eq 'リクエストを取り消しますか？'
         sleep 0.5
-        }. to change(@user2.followers, :count).by(-1)
+      end.to change(@user2.followers, :count).by(-1)
       # カウントダウンする
       expect(@user2.followers.count).to eq(0)
       expect(@user1.following.count).to eq(0)

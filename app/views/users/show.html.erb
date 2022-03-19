@@ -1,4 +1,4 @@
-<section class="text-gray-600 body-font">
+<section class="text-yellow-900 body-font">
   <div class="container p-5 mx-auto flex flex-col">
     <div class="lg:w-4/6 mx-auto">
 
@@ -22,7 +22,7 @@
 
           <% if current_user.id == @user.id %>
             <div class="sm:mt-8">
-              <%= link_to 'アカウントせってい', edit_user_registration_path(current_user), class:"relative bg-green-400 text-gray-700 p-3 rounded-lg text-sm font-semibold shadow mb-4 inline-table" %>
+              <%= link_to 'アカウントせってい', edit_user_registration_path(current_user), class:"relative bg-green-400 text-yellow-900 p-3 rounded-lg text-sm font-semibold shadow mb-4 inline-table" %>
             </div>
           <% elsif %>
             <%= render 'follow' %>
@@ -64,7 +64,7 @@
       <%# これまでのアクション ここから%>
       <div class="w-auto h-auto p-7">
         <div class="px-4 p-10 flex justify-center">
-          <h1 class="text-3xl ml-2 lg:ml-0 lg:text-4xl font-bold text-gray-700 tracking-normal lg:w-11/12 text-center">これまでの<span class="text-green-600">アクション</span></h1>
+          <h1 class="text-3xl ml-2 lg:ml-0 lg:text-4xl font-bold text-yellow-900 tracking-normal lg:w-11/12 text-center">これまでの<span class="text-green-600">アクション</span></h1>
         </div>
 
         <%# アクションリストのアコーディオン %>

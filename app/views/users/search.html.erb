@@ -1,7 +1,10 @@
 <section class="bg-gray-100">
     <div class="container px-6 py-10 mx-auto text-center">
       <div class="">
-        <div class="text-3xl font-semibold text-center text-gray-600 capitalize lg:text-3xl">「<%= params[:keyword] %>」のけんさくけっか</div>
+        <div class="text-xl font-semibold text-center text-yellow-900 capitalize lg:text-3xl">
+          <span class="text-3xl font-semibold capitalize lg:text-4xl">「<%= params[:keyword] %>」</span>
+          のけんさくけっか
+        </div>
 
         <div class="relative mx-auto w-60 mt-8">
             <span class="absolute inset-y-0 left-0 flex items-center pl-3">
@@ -10,7 +13,7 @@
                 </svg>
             </span>
             <%= form_with(url: search_users_path, local: true, method: :get) do |form| %>
-              <%= form.text_field :keyword, placeholder: "ユーザーを探す", class: "w-60 py-2 pl-10 pr-4 text-gray-700 bg-white border rounded-md  focus:border-blue-400 focus:outline-none focus:ring focus:ring-opacity-40 focus:ring-blue-300" %>
+              <%= form.text_field :keyword, placeholder: "ユーザーを探す", class: "w-60 py-2 pl-10 pr-4 text-yellow-900 bg-white border rounded-md  focus:border-blue-400 focus:outline-none focus:ring focus:ring-opacity-40 focus:ring-blue-300" %>
             <% end %>
         </div>
       </div>
@@ -23,16 +26,16 @@
                 <table class="min-w-full leading-normal">
                   <thead>
                     <tr>
-                      <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal text-center">
+                      <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-yellow-900 text-left text-sm uppercase font-normal text-center">
                         なまえ
                       </th>
-                      <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal text-center">
+                      <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-yellow-900 text-left text-sm uppercase font-normal text-center">
                         今日のアクション数
                       </th>
-                      <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
+                      <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-yellow-900 text-left text-sm uppercase font-normal">
                         すべてのアクション数
                       </th>
-                      <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal text-center"></th>
+                      <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-yellow-900 text-left text-sm uppercase font-normal text-center"></th>
                     </tr>
                   </thead>
 
@@ -56,26 +59,26 @@
                               <% end %>
                             </div>
                             <div class="ml-3">
-                              <p class="text-gray-900 whitespace-no-wrap">
+                              <p class="text-yellow-900 whitespace-no-wrap">
                                 <%= user.user_name %>
                               </p>
                             </div>
                           </div>
                         </td>
                         <td class="px-5 py-5 border-b border-gray-200 bg-white text-xl text-center">
-                          <p class="text-gray-900 whitespace-no-wrap">
+                          <p class="text-yellow-900 whitespace-no-wrap">
                             <%= user.user_activities.where('created_at >= ?', Date.today).count %>
                           </p>
                         </td>
                         <td class="px-5 py-5 border-b border-gray-200 bg-white text-xl text-center">
-                          <p class="text-gray-900 whitespace-no-wrap">
+                          <p class="text-yellow-900 whitespace-no-wrap">
                             <%= user.user_activities.count %>
                           </p>
                         </td>
                         <td class="px-5 py-5 border-b border-gray-200 bg-white text-xl">
                           <%= link_to user_path(user) do %>
-                            <span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight cursor-pointer">
-                              <span aria-hidden="true" class="absolute inset-0 bg-green-200 opacity-50 rounded-full ">
+                            <span class="relative inline-block px-3 py-1 font-semibold text-yellow-900 leading-tight cursor-pointer">
+                              <span aria-hidden="true" class="absolute inset-0 bg-yellow-400 opacity-50 rounded-full ">
                               </span>
                                 <span class="relative">
                                   <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">

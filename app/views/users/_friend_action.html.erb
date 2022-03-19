@@ -17,7 +17,7 @@
                 </svg>
               </div>
             <% end %>
-            <div class="text-gray-600 text-sm"><%= user.user_activities.where('created_at >= ?', Date.today).count %></div>
+            <div class="text-yellow-900 text-base mt-4"><%= user.user_activities.where('created_at >= ?', Date.today).count %></div>
           </div>
         <% end %>
       <% end %>

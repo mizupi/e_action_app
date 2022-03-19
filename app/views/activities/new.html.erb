@@ -3,11 +3,11 @@
     <div class="container mx-auto">
         <div role="article" class="bg-gray-100 py-12 md:px-8">
             <div class="px-4 py-10">
-                <h1 class="text-3xl ml-2 lg:ml-0 lg:text-4xl font-bold text-gray-700 tracking-normal text-center"><span class="text-green-600">アクション</span>をきろく</h1>
+                <h1 class="text-3xl ml-2 lg:ml-0 lg:text-4xl font-bold text-yellow-900 tracking-normal text-center"><span class="text-green-600">アクション</span>をきろく</h1>
             </div>
-            <div class="mb-2 text-right text-gray-600 text-base">出典：環境省 こども環境白書</div>
+            <div class="mb-2 text-right text-yellow-900 text-base">出典：環境省 こども環境白書</div>
             <%= render 'lists' %>
-            <div class="text-center my-12 text-lg">
+            <div class="text-center my-12 text-lg text-yellow-900">
                 他のアクションをきろくしたい方は
                 <%= link_to 'こちら', new_contact_path( user_id: current_user.id ), class:"text-green-600 hover:text-green-700 font-bold hover:border-b hover:border-green-700" %>
                 からリクエスト

@@ -36,7 +36,7 @@
                             <% if user_signed_in? %>
                                 <%= link_to '今日のアクション', root_path(anchor: 'today-action'), class:"px-2 py-1 text-sm font-medium text-yellow-900 transition-colors duration-200 transform rounded hover:bg-yellow-900 hover:text-gray-100 md:mx-2" %>
                                 <%= link_to 'アクションをきろく', new_activity_path, class:"px-2 py-1 text-sm font-medium text-yellow-900 transition-colors duration-200 transform rounded hover:bg-yellow-900 hover:text-gray-100 md:mx-2" %>
-                                <%= link_to 'マイページ', user_path(current_user.id), class:"px-2 py-1 text-sm font-medium text-yellow-900 transition-colors duration-200 transform rounded hover:bg-yellow-900 hover:text-gray-100 md:mx-2" %>
+                                <%= link_to 'マイページ', user_path(current_user.id), class:"px-2 py-1 text-sm font-medium text-yellow-900 transition-colors duration-200 transform rounded hover:bg-yellow-900 hover:text-gray-100 md:mx-2", data: { turbo: false } %>
                                 <%= link_to 'あそびかた', root_path(anchor: 'howtoplay'), class:"px-2 py-1 text-sm font-medium text-yellow-900 transition-colors duration-200 transform rounded hover:bg-yellow-900 hover:text-gray-100 md:mx-2" %>
                                 <%= button_to 'ログアウト', destroy_user_session_path, method: :delete, class:"px-2 py-1 text-sm font-medium text-yellow-900 transition-colors duration-200 transform rounded hover:bg-yellow-900 hover:text-gray-100 md:mx-2" %>
                             <% else %>

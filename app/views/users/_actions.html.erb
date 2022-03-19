@@ -8,7 +8,7 @@
         </svg>
       </button>
     </dt>
-    <dd id="accordion-open-body-<%= created_date %>" class="">
+    <dd id="accordion-open-body-<%= created_date %>" class="hidden">
       <% activity_list.each do |user_activity| %>
         <div class="py-4 px-5 border-r border-l border-gray-100 text-gray-500 flex justify-between">
           <%= user_activity.activity.activity %>

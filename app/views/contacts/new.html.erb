@@ -10,14 +10,7 @@
     <div class="mt-6">
       <%= form_with model: @contact, local: true do |f| %>
 
-        <% if @contact.errors.any? %>
-          <div id="error_explanation">
-            <ul><% @contact.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
+        <%= render "shared/error_messages", model: f.object %> 
 
         <div class="flex flex-col mb-5">
           <label for="name" class="mb-1 pl-3 text-xs sm:text-sm tracking-wide text-gray-600">なまえ</label>

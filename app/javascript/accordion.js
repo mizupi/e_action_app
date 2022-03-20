@@ -1,4 +1,4 @@
-function accordions() {
+window.addEventListener('load', function() {
   // クリックする要素を取得
   const parents = 'accordion-open-heading-';
 	const dtObj = document.getElementsByTagName('dt');
@@ -21,6 +21,4 @@ function accordions() {
       });
 		};
 	};
-};
-
-window.addEventListener('load', accordions)
+});

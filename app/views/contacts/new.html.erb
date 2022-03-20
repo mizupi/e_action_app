@@ -1,10 +1,10 @@
 <div class="min-h-screen flex flex-col items-center pt-6 bg-white">
   <div class="flex flex-col bg-white shadow-lg px-4 sm:px-6 md:px-8 lg:px-10 py-8 mt-4 rounded-3xl w-50 max-w-md">
     <div class="font-bold self-center text-xl sm:text-3xl text-green-500">
-      リクエストフォーム
+      リクエスト
     </div>
-    <div class="mt-4 self-center text-xl sm:text-sm text-gray-800">
-      追加したいアクションのリクエストをしましょう
+    <div class="mt-4 self-center text-xl sm:text-sm text-yellow-900">
+      追加したいアクションのリクエストをしましょう<br>
     </div>
 
     <div class="mt-6">
@@ -13,14 +13,14 @@
         <%= render "shared/error_messages", model: f.object %> 
 
         <div class="flex flex-col mb-5">
-          <label for="name" class="mb-1 pl-3 text-xs sm:text-sm tracking-wide text-gray-600">なまえ</label>
+          <label for="name" class="mb-1 pl-3 text-xs sm:text-sm tracking-wide text-yellow-900">なまえ</label>
           <div class="relative">
             <%= f.text_field :name, class:"text-sm pl-4 pr-4 rounded-2xl border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400", id:"name"%>
           </div>
         </div>
 
         <div class="flex flex-col mb-6">
-          <label for="password" class="mb-1 pl-3 text-xs sm:text-sm tracking-wide text-gray-600">リクエスト内容（100文字まで）</label>
+          <label for="password" class="mb-1 pl-3 text-xs sm:text-sm tracking-wide text-yellow-900">アクション（100文字まで）</label>
           <div class="relative">
             <%= f.text_area :content, class:"text-sm placeholder-gray-500 pl-2 pr-4 rounded-2xl border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400 h-48", id:"content", placeholder:"（例）レジぶくろをもらわない" %>
           </div>

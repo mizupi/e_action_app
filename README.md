@@ -92,12 +92,15 @@ https://e-action-app.herokuapp.com/
 **◆ マイページ**  
 マイページにともだちの内３人が表示されます。  
 アイコンの下の数字が「すべてのアクションの数」を表しています。  
-【ねらい】ともだちがどのくらいアクションをしているか確認することで、競争意識が働き、感化されることを期待しました。
+
+【ねらい】  
+ともだちがどのくらいアクションをしているか確認することで、競争意識が働き、感化されることを期待しました。
 
 <img width="856" alt="23af7a0f7af109732bbdbbf72cf09315" src="https://user-images.githubusercontent.com/98501087/159159124-aa0ea666-ed05-4902-9cca-9f8c53a167d1.png">
 
 **◆ ともだちリスト**  
 ともだちリストでは、ともだちの「今日のアクション数」「すべてのアクション数」を見ることができます。  
+
 [![Image from Gyazo](https://i.gyazo.com/b639a7d807bafb90275d32db456723a3.gif)](https://gyazo.com/b639a7d807bafb90275d32db456723a3)
 
 また、ともだちリストから該当ユーザーのマイページに遷移し、どのようなアクションをしたかを確認することも可能です。
@@ -124,8 +127,8 @@ https://e-action-app.herokuapp.com/
 # 開発環境
 - バックエンド：Ruby 3.1.1 / Ruby on Rails 7.0.2  
 - フロントエンド：JavaScript / Tailwind CSS  
-
-Bootstrapと比較してTailwind CSSの方が記述量は増えるが、直感的に使用でき、  
+※Tailwind CSSについて
+Bootstrapと比較してTailwind CSSの方が記述量は増えますが、直感的に使用でき、  
 JavaScriptライブラリ（学習中のReactを使いたい）との相性も良いという情報からこちらを採用しました。
 
 - テスト：RSpec / System Spec  

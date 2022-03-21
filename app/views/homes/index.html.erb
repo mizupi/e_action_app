@@ -9,16 +9,6 @@
 <%# あそびかた %>
 <%= render partial: "howtoplay" %>
 
-<%# 新規登録とログインのボタン %>
-<% unless user_signed_in? %>
-    <div class="container px-6 pb-20 pt-12 mx-auto flex justify-center text-xl">
-        <div class="items-center lg:flex justify-center">
-            <%= link_to '新しくはじめる', new_user_registration_path, class:"px-6 py-2 mr-28 rounded-full text-white bg-green-500 hover:bg-green-600 border-2 border-none focus:outline-none shadow" %>
-            <%= link_to 'ログイン', new_user_session_path, class:"px-6 py-2 rounded-full text-white bg-green-500 hover:bg-green-600 border-2 border-none focus:outline-none shadow" %>
-        </div>
-    </div>
-<% end %>
-
 <div class="flex justify-center align-center mb-20">
     <div id="scroll-top" class="table bg-gray-100 opacity-50 rounded-full text-lg text-yellow-900 font-semibold px-4 py-2 flex shadow cursor-pointer hover:bg-gray-200">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline m-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">

@@ -1,5 +1,5 @@
 <% if resource.errors.any? %>
-  <div class="px-4 pb-4 ml-2 text-rose-600 ">
+  <div class="px-4 pb-4 ml-2 text-rose-600 text-xs md:text-base">
     <ul class="list-disc">
       <% resource.errors.full_messages.each do |message| %>
         <li><%= message %></li>

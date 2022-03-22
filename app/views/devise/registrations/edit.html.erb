@@ -1,9 +1,9 @@
 <div class="h-auto flex flex-col items-center justify-center bg-amber-50 mb-12">
   <div class="flex flex-col bg-white shadow-lg px-4 sm:px-6 md:px-8 lg:px-10 py-8 mt-4 rounded-3xl w-50 max-w-md">
-    <div class="font-bold self-center text-xl sm:text-3xl text-green-500">
+    <div class="font-bold self-center text-xl md:text-3xl text-green-500">
       アカウントの設定
     </div>
-    <div class="mt-4 self-center text-xl sm:text-sm text-yellow-900">
+    <div class="mt-4 self-center text-sm md:text-xl text-yellow-900">
       へんこうするこうもくを入力してください
     </div>
 
@@ -99,12 +99,11 @@
           <% end %>
         </div>
       <% end %>
-
     </div>
   </div>
-  <div class="flex justify-center items-center mt-6">
-    <span class="ml-2 text-yellow-900 font-medium text-sm">へんこうを中止しますか？
-      <%= link_to 'マイページにもどる', user_path(current_user), class:"text-sm ml-2 text-green-600 font-semibold" %>
-    </span>
+
+    <div class="items-center mt-6">
+    <p class="text-yellow-900 font-medium text-xs block">へんこうを中止しますか？<p>
+    <%= link_to 'マイページにもどる', user_path(current_user), class:"text-sm text-green-600 font-semibold text-center block mt-2" %>
   </div>
 </div>

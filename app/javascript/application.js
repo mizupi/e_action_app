@@ -3,4 +3,4 @@
 import "controllers"
 // import "./controllers/header"
 // import "./scroll_concept"
-// import "./controllers/accordion"
+import "./controllers/accordion"

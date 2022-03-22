@@ -10,7 +10,7 @@
     <div>
       <%= form_with model: @user, url: user_session_path, class:"pt-3", local: true do |f| %>
 
-        <div class="px-4 pb-4  text-rose-600 ">
+        <div class="px-4 pb-4 text-rose-600 text-xs md:text-base">
           <%= flash[:notice] %>
           <%= flash[:alert] %>
         </div>

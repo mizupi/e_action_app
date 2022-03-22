@@ -22,5 +22,4 @@ function accordions() {
 		};
 	};
 };
-console.log('accordion');
 window.addEventListener('load', accordions)

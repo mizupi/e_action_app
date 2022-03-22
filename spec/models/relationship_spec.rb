@@ -21,12 +21,12 @@ RSpec.describe Relationship, type: :model do
       it '友達申請する側の値（follower_id）がなければ保存できない' do
         @relationship.follower_id = ''
         @relationship.valid?
-        expect(@relationship.errors.full_messages).to include('Follower must exist')
+        expect(@relationship.errors.full_messages).to include('Followerを入力してください')
       end
       it '友達申請される側の値（followed_id）がなければ保存できない' do
         @relationship.followed_id = ''
         @relationship.valid?
-        expect(@relationship.errors.full_messages).to include('Followed must exist')
+        expect(@relationship.errors.full_messages).to include('Followedを入力してください')
       end
       it '同じ組み合わせの友達申請のデータがすでに保存されている場合は保存できない' do
         @relationship.save
@@ -36,7 +36,7 @@ RSpec.describe Relationship, type: :model do
         another_relationship.follower_id = @relationship.follower_id
         another_relationship.followed_id = @relationship.followed_id
         another_relationship.valid?
-        expect(another_relationship.errors.full_messages).to include('Follower has already been taken')
+        expect(another_relationship.errors.full_messages).to include('Followerはすでに存在します')
       end
     end
   end

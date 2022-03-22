@@ -52,5 +52,16 @@
         <main class="container mx-auto px-12 mt-8 pt-12 md:pt-24 justify-center">
             <%= yield %>
         </main>
+        <script>
+            function pullDown() {
+            const pullDownList = document.getElementById("menu-btn");
+            pullDownList.addEventListener('click', function() {
+                const contents = document.getElementById("menu");
+                contents.classList.toggle("hidden");
+            })
+            };
+
+            window.addEventListener('load', pullDown)
+        </script>
     </body>
 </html>

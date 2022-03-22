@@ -16,12 +16,12 @@ RSpec.describe UserActivity, type: :model do
       it 'userが紐づいていないと登録できない' do
         @user_activity.user = nil
         @user_activity.valid?
-        expect(@user_activity.errors.full_messages).to include('User must exist')
+        expect(@user_activity.errors.full_messages).to include('Userを入力してください')
       end
       it 'activityが紐づいていないと登録できない' do
         @user_activity.activity = nil
         @user_activity.valid?
-        expect(@user_activity.errors.full_messages).to include('Activity must exist')
+        expect(@user_activity.errors.full_messages).to include('Activityを入力してください')
       end
     end
   end

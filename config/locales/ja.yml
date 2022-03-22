@@ -1,0 +1,8 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        user_name: ユーザー名
+      contact:
+        name: ユーザー名
+        content: 内容

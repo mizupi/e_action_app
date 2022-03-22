@@ -15,27 +15,27 @@ RSpec.describe Contact, type: :model do
       it 'nameが空では送信できない' do
         @contact.name = ''
         @contact.valid?
-        expect(@contact.errors.full_messages).to include("Name can't be blank")
+        expect(@contact.errors.full_messages).to include("ユーザー名を入力してください")
       end
       it 'contentが空では登録できない' do
         @contact.content = ''
         @contact.valid?
-        expect(@contact.errors.full_messages).to include("Content can't be blank")
+        expect(@contact.errors.full_messages).to include("内容を入力してください")
       end
       it 'nameが11文字以上だと登録できない' do
         @contact.name = Faker::String.random(length: 11)
         @contact.valid?
-        expect(@contact.errors.full_messages).to include('Name is too long (maximum is 10 characters)')
+        expect(@contact.errors.full_messages).to include('ユーザー名は10文字以内で入力してください')
       end
       it 'contentが101文字以上だと登録できない' do
         @contact.content = Faker::String.random(length: 101)
         @contact.valid?
-        expect(@contact.errors.full_messages).to include('Content is too long (maximum is 100 characters)')
+        expect(@contact.errors.full_messages).to include('内容は100文字以内で入力してください')
       end
       it 'userが紐づいていないと登録できない' do
         @contact.user = nil
         @contact.valid?
-        expect(@contact.errors.full_messages).to include('User must exist')
+        expect(@contact.errors.full_messages).to include('Userを入力してください')
       end
     end
   end

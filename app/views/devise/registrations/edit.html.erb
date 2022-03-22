@@ -10,7 +10,7 @@
     <div class="mt-6">
       <%= form_with model: @user, url: user_registration_path, class:"pt-3", local: true do |f| %>
 
-        <%= render "devise/shared/error_messages", model: f.object %> 
+        <%= render "devise/shared/error_messages", resource: resource %> 
 
         <div class="flex flex-col mb-5">
           <label for="email" class="mb-1 text-xs sm:text-sm tracking-wide text-yellow-900">なまえ（10文字以内）</label>

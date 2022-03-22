@@ -5,3 +5,5 @@ import "./controllers/header"
 import "./controllers/scroll_concept"
 //import "./controllers/accordion"
 import "./controllers/accordion-06f750499b2ad2d8bb965de70ed9df9d29cbfa5078d2174bf71e551410cead33.js"
+
+console.log('application');

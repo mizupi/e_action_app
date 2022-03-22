@@ -7,13 +7,13 @@
       追加したいアクションのリクエストをしましょう<br>
     </div>
 
-    <div class="mt-6">
+    <div class="mt-4">
       <%= form_with model: @contact, local: true do |f| %>
 
         <%= render "shared/error_messages", model: f.object %> 
 
         <div class="flex flex-col mb-5">
-          <label for="name" class="mb-1 pl-3 text-xs sm:text-sm tracking-wide text-yellow-900">なまえ</label>
+          <label for="name" class="mb-1 pl-3 text-xs sm:text-sm tracking-wide text-yellow-900">あなたのなまえ</label>
           <div class="relative">
             <%= f.text_field :name, class:"text-sm pl-4 pr-4 rounded-2xl border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400", id:"name"%>
           </div>

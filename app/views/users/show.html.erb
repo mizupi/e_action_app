@@ -105,4 +105,11 @@ function accordions() {
 	};
 };
 window.addEventListener('load', accordions)
+
+function confirmDestroy(message) {
+  if (!confirm(message)) {
+    return false;
+  }
+}
+
 </script>

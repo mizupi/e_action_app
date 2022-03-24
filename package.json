@@ -7,9 +7,11 @@
     "lib": "lib",
     "test": "test"
   },
-  "dependencies": {},
+  "dependencies": {
+    "sweetalert": "^2.1.2"
+  },
   "devDependencies": {},
-  "engines" : {
+  "engines": {
     "node": "14.19.0"
   },
   "scripts": {

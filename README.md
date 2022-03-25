@@ -64,7 +64,7 @@ https://e-action-app.herokuapp.com/
 ヘッダーの「アクションをきろく」からアクション一覧ページへ遷移します。  
 今日行ったアクションを一覧から選択し、チェックボタンをクリックすると、ログインしたユーザーのアクションとして記録することができます。
 
-[![Image from Gyazo](https://i.gyazo.com/41201b19d3d72c0b0b37bba0ba7176e6.gif)](https://gyazo.com/41201b19d3d72c0b0b37bba0ba7176e6)
+[![Image from Gyazo](https://i.gyazo.com/793809fc41735a2151ec7577e754dc75.gif)](https://gyazo.com/793809fc41735a2151ec7577e754dc75)
 
 行ったアクションは、「マイページ」から日付ごとに確認することができます。
 
@@ -112,6 +112,7 @@ https://e-action-app.herokuapp.com/
 
 [![Image from Gyazo](https://i.gyazo.com/772f97a8409bc26b7a756f3c794606d2.gif)](https://gyazo.com/772f97a8409bc26b7a756f3c794606d2)
 
+（以下、セキュリティ環境見直し中のため停止中）
 リクエストを送信すると、リクエスト内容が送信されたことを通知するために、ユーザーのメールアドレス宛に送信内容が自動で送られます。  
 管理者宛にもメールが届くので、リクエスト内容を確認し、必要に応じてアクションを追加することができます。
 
